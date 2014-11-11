@@ -91,7 +91,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                             <ul class="sub_tile">
                             <!----------->  
                          	    <?php 
-									$myquery = mysqli_query($dbcon,"SELECT * FROM vish_subjects WHERE level_id='1' ORDER BY subj_id DESC LIMIT 2") or die("can not fire this shitty query");		
+									$myquery = data_selector("vish_subjects","level_id='1'","subj_id DESC","LIMIT 2");		
 															
 										while($fetcher=mysqli_fetch_assoc($myquery)){																				
 								?>                      	
@@ -100,7 +100,12 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                                         <a href="#"><img src="<?php echo SITE_PATH.$fetcher['subj_logo_url']; ?>" alt="subject image" /></a>
                                     </div>                       
                                      <div class="tile_subject"> <a href="#"><?php echo $fetcher['subj_name']; ?></a></div>                         	
-                                    <div class="tile_cat">// Web design</div>
+                                    <div class="tile_cat">
+                                    	<?php
+                                        	$subquery = data_selector();
+                                        ?>
+                                    	// Web design
+                                     </div>
                                     <div class="tile_ago">// 5 Hours ago</div>                                                
                                 </li>
                                <?php } // while loop ends here ?>                    			
