@@ -102,9 +102,11 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                                      <div class="tile_subject"> <a href="#"><?php echo $fetcher['subj_name']; ?></a></div>                         	
                                     <div class="tile_cat">
                                     	<?php
-                                        	$subquery = data_selector();
-                                        ?>
-                                    	// Web design
+											$catid = $fetcher['cat_id'];
+                                        	$subquery = data_selector("vish_cats","cat_id='$catid'");
+											$subfetch = mysqli_fetch_assoc($subquery) or die('can not fetch sub cat');
+											echo $subfetch['cat_name'];
+                                        ?>                                    	
                                      </div>
                                     <div class="tile_ago">// 5 Hours ago</div>                                                
                                 </li>
