@@ -1,0 +1,113 @@
+@charset "utf-8";
+/* CSS Document */
+/*--Beginners subject tile--*/
+#subtile li{
+	border:0px solid #000;
+	width:24.5%;
+	max-width:156px;
+	min-height:110px;
+	max-height:192px;
+	display:inline-block;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	padding:0px 11px;
+	margin-bottom:40px;
+	position:relative;
+	overflow:hidden;}
+#subtile li img{
+	width:98.5%;
+	border:1px solid #e5e5e5;}
+.tile_img{
+	position:relative;
+	overflow:hidden;}
+.tile_cat{
+	color:#666;
+	font-size:12px;
+	margin:5px 0 0;}
+.tile_ago{
+	font-size:12px;
+	color:#666;}
+.tile_over{
+	position:absolute;
+	left:0;
+	top:0;
+	width:98%;
+	height:162px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	background:rgba(255,255,255,0.9);
+	color:#333;
+	font-size:13px;
+	padding:8px 10px;
+	border:1px dashed #f00;
+	text-align:center;
+	opacity:0;
+	-webkit-transition:all 0.5s;
+	transition:all 0.5s;
+	display:table;}
+.tile_over p{
+	width:100%;
+	text-align:center;
+	display:table-cell;
+	vertical-align:middle;}
+.tile_over a{
+	color:#111;	}
+#subtile li:hover .tile_over,
+#sub_tile li:hover .tile_over,
+.tile_over:hover{
+	cursor:pointer;		
+	opacity:0.9;}
+/*------
+*/
+.course-setting{
+	position:absolute;
+	top:0;
+	right:15px;
+	display:none;}
+#subtile li:hover .course-setting{
+	display:block;}
+
+/*=-=-=-=-=-=-manage video page css*/
+.topic{
+			color:#0361ab !important;}
+		.icover a{
+			font-size:12px;
+			transition:all 0.5s;
+			-webkit-transition:all 0.5s;}
+		.icover a:hover{
+			font-size:14px;
+			transition:all 0.5s;
+			-webkit-transition:all 0.5s;}
+		.videditor{			
+			width: 150px;
+			height:30px;         
+		   line-height:30px;
+			text-align:right;
+			vertical-align:middle;
+			padding:0 10px;
+			z-index:10;
+			position:absolute;
+			top:0;
+			right:0;
+			display:none;}
+		ol.dd-list li:hover>.videditor{
+			display:block;}
+/*=-=-=-=-=-=-=-=-=-Video page=-=-=-=-=-=-=-=-=-=-*/
+
+.vidbx {
+    border-right: 1px solid #333;
+    float: left;
+    height: auto;
+    max-width: 800px;
+    padding-right: 25px;
+    width: 100%;
+}
+
+.vidbx {
+    border-right: 1px solid #333;
+    float: left;
+    height: auto;
+    max-width: 800px;
+    padding-right: 25px;
+    width: 100%;
+}
