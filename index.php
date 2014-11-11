@@ -12,9 +12,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <style>
 	.mt5{
-		margin-top:10px;}
+		margin-top:5px;}
 </style>
-<title>Untitled Document</title>
+<title>This is a test page, where we can do everything for experiment</title>
 </head>
 <body>
 <div class="wrapper">
