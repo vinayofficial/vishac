@@ -123,22 +123,28 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                         <div class="latestsubx">
                             <!--subject goes here-->
                             <ul class="sub_tile">
+                            <!----------->  
+                         	    <?php 
+									$myquery = data_selector("vish_subjects","level_id='2'","subj_id DESC","LIMIT 2");		
+															
+										while($fetcher=mysqli_fetch_assoc($myquery)){																				
+								?>                      	
                             	<li>
                                     <div class="tile_img">
-                                       <a href="#"><img src="assets/images/tile_03.png" alt="subject image" /></a>
+                                        <a href="#"><img src="<?php echo SITE_PATH.$fetcher['subj_logo_url']; ?>" alt="subject image" /></a>
                                     </div>                       
-                                     <div class="tile_subject"> <a href="#">HTML 4</a></div>                         	
-                                    <div class="tile_cat">// Web design</div>
+                                     <div class="tile_subject"> <a href="#"><?php echo $fetcher['subj_name']; ?></a></div>                         	
+                                    <div class="tile_cat">
+                                    	<?php
+											$catid = $fetcher['cat_id'];
+                                        	$subquery = data_selector("vish_cats","cat_id='$catid'");
+											$subfetch = mysqli_fetch_assoc($subquery) or die('can not fetch sub cat');
+											echo $subfetch['cat_name'];
+                                        ?>                                    	
+                                     </div>
                                     <div class="tile_ago">// 5 Hours ago</div>                                                
                                 </li>
-                                <li>
-                                    <div class="tile_img">
-                                        <a href="#"><img src="assets/images/tile_03.png" alt="subject image" /></a>
-                                    </div>                       
-                                     <div class="tile_subject"> <a href="#">HTML 4</a></div>                         	
-                                    <div class="tile_cat">// Web design</div>
-                                    <div class="tile_ago">// 5 Hours ago</div>                                                
-                                </li>
+                               <?php } // while loop ends here ?>                    			
                             </ul>                            
                        		<div class="clr"></div>                       		
                        </div>
@@ -148,23 +154,28 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                         <div class="latestsubx">
                             <!--subject goes here-->
                             <ul class="sub_tile">
+                            <!----------->  
+                         	    <?php 
+									$myquery = data_selector("vish_subjects","level_id='3'","subj_id DESC","LIMIT 2");		
+															
+										while($fetcher=mysqli_fetch_assoc($myquery)){																				
+								?>                      	
                             	<li>
                                     <div class="tile_img">
-                                       <a href="#"><img src="assets/images/tile_03.png" alt="subject image" /></a>
+                                        <a href="#"><img src="<?php echo SITE_PATH.$fetcher['subj_logo_url']; ?>" alt="subject image" /></a>
                                     </div>                       
-                                     <div class="tile_subject"> <a href="#">HTML 4</a></div>                         	
-                                    <div class="tile_cat">// Web design</div>
+                                     <div class="tile_subject"> <a href="#"><?php echo $fetcher['subj_name']; ?></a></div>                         	
+                                    <div class="tile_cat">
+                                    	<?php
+											$catid = $fetcher['cat_id'];
+                                        	$subquery = data_selector("vish_cats","cat_id='$catid'");
+											$subfetch = mysqli_fetch_assoc($subquery) or die('can not fetch sub cat');
+											echo $subfetch['cat_name'];
+                                        ?>                                    	
+                                     </div>
                                     <div class="tile_ago">// 5 Hours ago</div>                                                
                                 </li>
-                                
-                                <li>
-                                    <div class="tile_img">
-                                        <a href="#"><img src="assets/images/tile_03.png" alt="subject image" /></a>
-                                    </div>                       
-                                     <div class="tile_subject"> <a href="#">HTML 4</a></div>                         	
-                                    <div class="tile_cat">// Web design</div>
-                                    <div class="tile_ago">// 5 Hours ago</div>                                                
-                                </li>
+                               <?php } // while loop ends here ?>                    			
                             </ul>                            
                        		<div class="clr"></div>                       		
                        </div>

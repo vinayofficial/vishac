@@ -3,7 +3,7 @@
 	define('DB_USER','root');
 	define('DB_PASSKEY','');
 	define('DB_NAME','visharzq_vishac');			
-	$fullurl = "http://".$_SERVER['HTTP_HOST'].'/vishacademy.com/';
+	$fullurl = "http://".$_SERVER['HTTP_HOST'].'/vishac/';
 	define("SITE_PATH",$fullurl,TRUE);
 	global $dbcon;
 	$dbcon = mysqli_connect(DB_SERVER,DB_USER,DB_PASSKEY,DB_NAME);	
