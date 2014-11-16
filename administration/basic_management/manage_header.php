@@ -1,5 +1,8 @@
 <?php require_once '../inc_/functions.php'; ?>
-<?php include_once '../inc_/_dbconnector.php';?>
+<?php
+	 include_once '../inc_/_dbconnector.php';
+	 
+?>
 <?php
 	if(isset($_POST['submit_new_menu'])){
 		$new_menu_name = $_POST['new_menu_name'];

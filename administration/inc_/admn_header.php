@@ -2,7 +2,7 @@
 <!--logo start-->
 <div class="brand">
 
-    <a href="index-2.html" class="logo">
+    <a href="index.php" class="logo">
         <img src="assets/images/logo.png" alt="">
     </a>
     <div class="sidebar-toggle-box">
@@ -109,7 +109,7 @@
                     <a href="#">
                         <span class="photo"><img alt="avatar" src="images/avatar-mini-2.jpg"></span>
                                 <span class="subject">
-                                <span class="from">Vinay Singh</span>
+                                <span class="from"><?php echo $_SESSION['user']; ?></span>
                                 <span class="time">2 min ago</span>
                                 </span>
                                 <span class="message">
@@ -200,13 +200,13 @@
             <a data-toggle="dropdown" class="dropdown-toggle icon-user" href="#">
                 <!--<img alt="" src="images/avatar1_small.jpg">-->
                 <i class="fa fa-user"></i>
-                <span class="username">vinay singh</span>
+                <span class="username"><?php echo $_SESSION['user']; ?></span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
                 <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                <li><a href="logout.php"><i class="fa fa-key"></i> Log Out</a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->

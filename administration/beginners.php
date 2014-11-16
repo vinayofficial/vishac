@@ -1,5 +1,7 @@
 <?php include 'inc_/functions.php'; ?>
-<?php include 'inc_/_dbconnector.php'; ?>
+<?php
+	 include 'inc_/_dbconnector.php';
+ ?>
 <?php
 	$currentlevel='beginners';
 	// fetching levels

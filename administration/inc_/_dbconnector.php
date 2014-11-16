@@ -1,4 +1,5 @@
 <?php	
+	check_login();
 	define('DB_SERVER','localhost');
 	define('DB_USER','root');
 	define('DB_PASSKEY','');
@@ -12,4 +13,6 @@
 	mysqli_query($dbcon,'SET character_set_client=utf8');       
 	mysqli_query($dbcon,'SET character_set_connection=utf8');
 	mysqli_query($dbcon,'SET collation_connection=utf8_general_ci');
+	
+	
 ?>

@@ -1,3 +1,7 @@
+<?php
+	require_once 'inc_/functions.php';
+	require_once 'inc_/_dbconnector.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

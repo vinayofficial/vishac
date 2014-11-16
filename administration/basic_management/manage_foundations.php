@@ -1,4 +1,7 @@
-<?php include '../inc_/_dbconnector.php'; ?>
+<?php
+	 include '../inc_/functions.php'; 
+	 include '../inc_/_dbconnector.php';
+?>
 <?php
 	// ADD LEVEL FORM
 	if(isset($_POST['submit_level'])){

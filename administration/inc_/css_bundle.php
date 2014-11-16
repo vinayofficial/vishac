@@ -1,6 +1,6 @@
 
     <!--Core CSS -->
-    <base href="http://localhost/vishacademy.com/administration/" />
+    <base href="http://localhost/vishac/administration/" />
     <link href="assets/css/vish_style.css" rel="stylesheet">
     <link href="assets/bs3/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/js/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">

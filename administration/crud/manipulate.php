@@ -1,4 +1,7 @@
-<?php require_once '../inc_/functions.php'; ?>
+<?php require_once '../inc_/functions.php'; 
+//------------------------ check user login
+?>
+
 <?php include_once '../inc_/_dbconnector.php';?>
 <?php
 	// Getting values

@@ -1,5 +1,7 @@
 <?php require_once '../inc_/functions.php'; ?>
-<?php include_once '../inc_/_dbconnector.php'; ?>
+<?php
+	 include_once '../inc_/_dbconnector.php';
+ ?>
 <?php
 	// submitting SEO Information
 	if(isset($_POST['submit_seo'])){
