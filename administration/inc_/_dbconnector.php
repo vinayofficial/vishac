@@ -14,5 +14,8 @@
 	mysqli_query($dbcon,'SET character_set_connection=utf8');
 	mysqli_query($dbcon,'SET collation_connection=utf8_general_ci');
 	
+	// Default Site path
+	$fullurl = $_SERVER['HTTP_HOST'].'/vishac/';
+	define("SITE_PATH",$fullurl,TRUE);
 	
 ?>

@@ -1,5 +1,7 @@
-<?php require_once 'inc_/functions.php'; ?>
-<?php //include 'inc_/_dbconnector.php'; ?>
+<?php
+// database file is include in functions.php
+ require_once 'inc_/functions.php';
+?>
 <!doctype html>
 <html>
 <head>
@@ -68,14 +70,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it.    	
                             </p>
                             <div class="link"><a href="#" class="fff u">Start here »</a></div>
-                        </li>
-                       <?php /*  <li>
-                        	<div class="heading">Discussions</div>
-                            <p>
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it.    	
-                            </p>
-                            <div class="link"><a href="#" class="fff u">Start here »</a></div>
-                        </li> */ ?>
+                        </li>                      
                     </ul>
                 </div>
             </div>            
@@ -91,15 +86,34 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                             <ul class="sub_tile">
                             <!----------->  
                          	    <?php 
-									$myquery = data_selector("vish_subjects","level_id='1'","subj_id DESC","LIMIT 2");		
+									$myquery = data_selector("vish_subjects","level_id='1' AND subj_status='1'","subj_id DESC","LIMIT 2");		
 															
-										while($fetcher=mysqli_fetch_assoc($myquery)){																				
+										while($fetcher=mysqli_fetch_assoc($myquery)){	
+										
+										//fetching level
+										$levelname = 'beginners';
+										$get_level = data_selector("vish_levels","level_name='$levelname'");
+ 										$fetch = mysqli_fetch_assoc($get_level);
+  										 $levelid = $fetch['level_id'];
+										 $levelname = $fetch['level_name'];
+										 // Select subject			
+										 $subjid =$fetcher['subj_id'];							
+										$explode_subjname = explode(" ",$fetcher['subj_name']);
+										$subjname = implode("_",$explode_subjname);
+										// Getting current video
+										$vid = data_selector("vish_videodata","subj_id='$subjid'");
+										$get_vid = mysqli_fetch_assoc($vid);
+										$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																		
 								?>                      	
                             	<li>
                                     <div class="tile_img">
-                                        <a href="#"><img src="<?php echo SITE_PATH.$fetcher['subj_logo_url']; ?>" alt="subject image" /></a>
+                                      <a href="<?php echo $vidpage_path; ?>">
+                                        <img src="<?php echo SITE_PATH.$fetcher['subj_logo_url']; ?>" alt="subject image" />
+                                      </a>
                                     </div>                       
-                                     <div class="tile_subject"> <a href="#"><?php echo $fetcher['subj_name']; ?></a></div>                         	
+                                    <div class="tile_subject">
+                                      <a href="<?php echo $vidpage_path; ?>"><?php echo $fetcher['subj_name']; ?></a>
+                                    </div>                         	
                                     <div class="tile_cat">
                                     	<?php
 											$catid = $fetcher['cat_id'];
@@ -108,14 +122,11 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 											echo $subfetch['cat_name'];
                                         ?>                                    	
                                      </div>
-                                    <div class="tile_ago">// 5 Hours ago</div>                                                
+                                    <div class="tile_ago">// 5 Hours ago</div>
                                 </li>
                                <?php } // while loop ends here ?>                    			
                             </ul>                            
                        		<div class="clr"></div>
-                       		<!--<div class="brwslinkbx">
-                         	<a href="#" class="themeBtn-std">Browse all »</a>   
-                        </div>-->
                        </div>
                     </li>
                     <li>
@@ -125,9 +136,22 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                             <ul class="sub_tile">
                             <!----------->  
                          	    <?php 
-									$myquery = data_selector("vish_subjects","level_id='2'","subj_id DESC","LIMIT 2");		
-															
-										while($fetcher=mysqli_fetch_assoc($myquery)){																				
+									$myquery = data_selector("vish_subjects","level_id='2'","subj_id DESC","LIMIT 2");
+									while($fetcher=mysqli_fetch_assoc($myquery)){	
+									//fetching level
+										$levelname = 'Stuffers';
+										$get_level = data_selector("vish_levels","level_name='$levelname'");
+ 										$fetch = mysqli_fetch_assoc($get_level);
+  										 $levelid = $fetch['level_id'];
+										 $levelname = $fetch['level_name'];
+										 // Select subject			
+										 $subjid =$fetcher['subj_id'];							
+										$explode_subjname = explode(" ",$fetcher['subj_name']);
+										$subjname = implode("_",$explode_subjname);
+										// Getting current video
+										$vid = data_selector("vish_videodata","subj_id='$subjid'");
+										$get_vid = mysqli_fetch_assoc($vid);
+										$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																			
 								?>                      	
                             	<li>
                                     <div class="tile_img">

@@ -55,7 +55,7 @@ include_once 'inc_/va_files.php'; ?>
 					?>
                 	<li>
                     	<div class="tile_img">
-                        	<img src="administration/<?php echo $get_subj['subj_logo_url']; ?>" alt="<?php $get_subj['subj_name'] ?>" />
+                        	<img src="<?php echo $get_subj['subj_logo_url']; ?>" alt="<?php $get_subj['subj_name'] ?>" />
                             <div class="tile_over">
                             	<!--<p><a href="video.php">Make a responsive website from scratch to end within an hour</a></p>-->
                             </div>
@@ -64,9 +64,9 @@ include_once 'inc_/va_files.php'; ?>
 							$selvid = "SELECT * FROM vish_videodata WHERE subj_id='$subjid'";
 							$fire_selvid = mysqli_query($dbcon,$selvid);
 							$get_vid = mysqli_fetch_assoc($fire_selvid);
-							$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);
-						 ?>
-                         <div class="tile_subject"> <a href="<?php echo $vidpage_path ;?>"><?php echo $get_subj['subj_name'] ?></a></div>
+							$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']); ?>
+<p>This is the content for Layout P Tag<p>This is the content for Layout P Tag</p></p>						 ?>
+                         <div class="tile_subject"> <a href=""><?php echo $get_subj['subj_name'] ?></a></div>
                          	<?php 
 							// fetching catagory name 
 							$selcat = "SELECT * FROM vish_cats WHERE cat_id = '$catid'";
