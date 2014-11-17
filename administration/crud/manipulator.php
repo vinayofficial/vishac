@@ -1,4 +1,6 @@
-<?php include '../inc_/_dbconnector.php';?>
+<?php 
+include '../inc_/functions.php';
+include '../inc_/_dbconnector.php';?>
 <?php
 	//--------------------------EDIT LEVEL operations
 	// GETTING LEVEL DATA
