@@ -23,9 +23,10 @@
 		echo $bcrs_url = $level_name.'/'.strtolower(implode("-",$breakname)).'.php';
 		//$bcrs_url = $level_name.'/'.$_POST['bcourse_url'];
 		$bcrs_title = $_POST['bcourse_title'];
-		if(isset($_POST['bcourse_active']) && $_POST['bcourse_active'] == true ){ $bcrs_status =1;} else {$bcrs_status =0;}
+		if(isset($_POST['bcourse_active']) && $_POST['bcourse_active'] == true ){ $bcrs_status =1;} else {$bcrs_status =0;}		
 		//Image variables
-		$name = $_FILES['coursepic']['name'];
+		$name = $_FILES['coursepic']['name'.date('ymhhms')];
+		$name = $name.date('ymdhms');
 		$tmp_name = $_FILES['coursepic']['tmp_name'];	
 		// IMAGE UPLOAD
 		if($name){
