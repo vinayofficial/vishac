@@ -65,7 +65,6 @@ include_once 'inc_/va_files.php'; ?>
 							$fire_selvid = mysqli_query($dbcon,$selvid);
 							$get_vid = mysqli_fetch_assoc($fire_selvid);
 							$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']); ?>
-<p>This is the content for Layout P Tag<p>This is the content for Layout P Tag</p></p>						 ?>
                          <div class="tile_subject"> <a href=""><?php echo $get_subj['subj_name'] ?></a></div>
                          	<?php 
 							// fetching catagory name 

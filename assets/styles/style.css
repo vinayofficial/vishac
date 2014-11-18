@@ -242,7 +242,7 @@ ul.sub_tile li{
     height: auto;
     margin: 0 6px;
     overflow: hidden;
-    width: 130px;	}
+    width: 142px;	}
 ul.sub_tile li img{
 	width:98%;
 	border:1px solid #ccc;}
@@ -608,7 +608,7 @@ nav#mainav{
 /*----Subject row----*/
 ul.subjectrow li{
 	display:inline-table;
-	width:230px;
+	/*width:230px;*/
 	max-width:15%;
 	min-height:285px;
 	height:auto;
