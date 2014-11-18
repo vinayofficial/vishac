@@ -155,9 +155,13 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 								?>                      	
                             	<li>
                                     <div class="tile_img">
-                                        <a href="#"><img src="<?php echo $fetcher['subj_logo_url']; ?>" alt="subject image" /></a>
+                                        <a href="<?php echo $vidpage_path; ?>">
+                                        <img src="<?php echo $fetcher['subj_logo_url']; ?>" alt="subject image" />
+                                        </a>
                                     </div>                       
-                                     <div class="tile_subject"> <a href="#"><?php echo $fetcher['subj_name']; ?></a></div>                         	
+                                     <div class="tile_subject">
+                                     	<a href="<?php echo $vidpage_path; ?>"><?php echo $fetcher['subj_name']; ?></a>
+                                     </div>                         	
                                     <div class="tile_cat">
                                     	<?php
 											$catid = $fetcher['cat_id'];
@@ -182,13 +186,29 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                          	    <?php 
 									$myquery = data_selector("vish_subjects","level_id='3'","subj_id DESC","LIMIT 2");		
 															
-										while($fetcher=mysqli_fetch_assoc($myquery)){																				
+										while($fetcher=mysqli_fetch_assoc($myquery)){	
+										//fetching level
+										$levelname = 'Stuffers';
+										$get_level = data_selector("vish_levels","level_name='$levelname'");
+ 										$fetch = mysqli_fetch_assoc($get_level);
+  										 $levelid = $fetch['level_id'];
+										 $levelname = $fetch['level_name'];
+										 // Select subject			
+										 $subjid =$fetcher['subj_id'];							
+										$explode_subjname = explode(" ",$fetcher['subj_name']);
+										$subjname = implode("_",$explode_subjname);
+										// Getting current video
+										$vid = data_selector("vish_videodata","subj_id='$subjid'");
+										$get_vid = mysqli_fetch_assoc($vid);
+										$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																			
 								?>                      	
                             	<li>
                                     <div class="tile_img">
-                                        <a href="#"><img src="<?php echo $fetcher['subj_logo_url']; ?>" alt="subject image" /></a>
+                                        <a href="<?php echo $vidpage_path; ?>"><img src="<?php echo $fetcher['subj_logo_url']; ?>" alt="subject image" /></a>
                                     </div>                       
-                                     <div class="tile_subject"> <a href="#"><?php echo $fetcher['subj_name']; ?></a></div>                         	
+                                     <div class="tile_subject"> 
+                                     	<a href="<?php echo $vidpage_path; ?>"><?php echo $fetcher['subj_name']; ?></a>
+                                     </div>                         	
                                     <div class="tile_cat">
                                     	<?php
 											$catid = $fetcher['cat_id'];
@@ -239,308 +259,149 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         	<div class="cmn-cntnr">            
             		<span class="centro"><h1 class="megatitle">// BEGINNERS</h1></span>
                     <ul class="subjectrow">
+                    	<?php
+                        	//Beginner subject fetch							
+									$myquery = data_selector("vish_subjects","level_id='1'","subj_id","LIMIT 6");		
+															
+										while($fetcher=mysqli_fetch_assoc($myquery)){	
+										//fetching level
+										$levelname = 'Beginners';
+										$get_level = data_selector("vish_levels","level_name='$levelname'");
+ 										$fetch = mysqli_fetch_assoc($get_level);
+  										 $levelid = $fetch['level_id'];
+										 $levelname = $fetch['level_name'];
+										 // Select subject			
+										 $subjid =$fetcher['subj_id'];							
+										$explode_subjname = explode(" ",$fetcher['subj_name']);
+										$subjname = implode("_",$explode_subjname);
+										// Getting current video
+										$vid = data_selector("vish_videodata","subj_id='$subjid'");
+										$get_vid = mysqli_fetch_assoc($vid);
+										$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																			
+								?> 
+						
                     	<li>
                         	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_html.jpg" /></a>
+                        		<a href="<?php echo $vidpage_path; ?>">
+                                	<img src="<?php echo $fetcher['subj_logo_url']; ?>" />
+                                 </a>
                             </div>
                             <div class="subjname">
-                            	<a href="#">
-                            		HTML 4
+                            	<a href="<?php echo $vidpage_path; ?>">
+                            		<?php echo $fetcher['subj_name']; ?>
                                 </a>
                             </div>
                             <div class="tile_cat">
-                            	// Web design
+                            	<?php
+									$catid = $fetcher['cat_id'];
+									$subquery = data_selector("vish_cats","cat_id='$catid'");
+									$subfetch = mysqli_fetch_assoc($subquery) or die('can not fetch sub cat');
+									echo $subfetch['cat_name'];
+								?> 
                             </div>
                             <div class="tile_cat">
                             	// 5 days ago
                             </div>
                         </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_css2.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		CSS 2
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_html5.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		HTML5
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_css3.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		CSS 3
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_js.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		JavaScript
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_ajax.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		AJAX
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
+                        <?php } // while loop ends here ?>                        
                     </ul>
 	                <hr class="digonalhr" /> 
                     <span class="centro"> <h1 class="megatitle">// STUFFERS</h1></span>
                     <ul class="subjectrow">
+                    	<?php
+                        	//Beginner subject fetch							
+									$myquery = data_selector("vish_subjects","level_id='2'","subj_id","LIMIT 6");		
+															
+										while($fetcher=mysqli_fetch_assoc($myquery)){	
+										//fetching level
+										$levelname = 'Stuffers';
+										$get_level = data_selector("vish_levels","level_name='$levelname'");
+ 										$fetch = mysqli_fetch_assoc($get_level);
+  										 $levelid = $fetch['level_id'];
+										 $levelname = $fetch['level_name'];
+										 // Select subject			
+										 $subjid =$fetcher['subj_id'];							
+										$explode_subjname = explode(" ",$fetcher['subj_name']);
+										$subjname = implode("_",$explode_subjname);
+										// Getting current video
+										$vid = data_selector("vish_videodata","subj_id='$subjid'");
+										$get_vid = mysqli_fetch_assoc($vid);
+										$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																			
+								?> 
+						
                     	<li>
                         	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_html.jpg" /></a>
+                        		<a href="<?php echo $vidpage_path; ?>">
+                                	<img src="<?php echo $fetcher['subj_logo_url']; ?>" />
+                                 </a>
                             </div>
                             <div class="subjname">
-                            	<a href="#">
-                            		Responsive website from start to finish
+                            	<a href="<?php echo $vidpage_path; ?>">
+                            		<?php echo $fetcher['subj_name']; ?>
                                 </a>
                             </div>
                             <div class="tile_cat">
-                            	// Web design
-                            </div>
-                            <div class="tile_cat">
-                            	<i class="fa fa-clock-o"></i> 5 days ago 
-                                <span class="fright">
-                                	<i class="fa fa-play-circle"></i> 40 Videos
-                                </span>
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_css2.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		JQuery plugin implementation guide
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
-                            </div>
-                             <div class="tile_cat">
-                            	<i class="fa fa-clock-o"></i> 5 days ago 
-                                <span class="fright">
-                                	<i class="fa fa-play-circle"></i> 25 Videos
-                                </span>
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_html5.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		AJAX implementation with php
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
+                            	<?php
+									$catid = $fetcher['cat_id'];
+									$subquery = data_selector("vish_cats","cat_id='$catid'");
+									$subfetch = mysqli_fetch_assoc($subquery) or die('can not fetch sub cat');
+									echo $subfetch['cat_name'];
+								?> 
                             </div>
                             <div class="tile_cat">
                             	// 5 days ago
                             </div>
                         </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_css3.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		Register and login system
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_js.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		Dynamic responsive website with php
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_ajax.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		Super flexible and dynamic bootstrap website
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
+                        <?php } // while loop ends here ?>                        
                     </ul>
 	                <hr class="digonalhr" /> 
                      <span class="centro"><h1 class="megatitle">// TRICKERS</h1></span>
                     <ul class="subjectrow">
+                    	<?php
+                        	//Beginner subject fetch							
+									$myquery = data_selector("vish_subjects","level_id='3'","subj_id","LIMIT 6");		
+															
+										while($fetcher=mysqli_fetch_assoc($myquery)){	
+										//fetching level
+										$levelname = 'Trickers';
+										$get_level = data_selector("vish_levels","level_name='$levelname'");
+ 										$fetch = mysqli_fetch_assoc($get_level);
+  										 $levelid = $fetch['level_id'];
+										 $levelname = $fetch['level_name'];
+										 // Select subject			
+										 $subjid =$fetcher['subj_id'];							
+										$explode_subjname = explode(" ",$fetcher['subj_name']);
+										$subjname = implode("_",$explode_subjname);
+										// Getting current video
+										$vid = data_selector("vish_videodata","subj_id='$subjid'");
+										$get_vid = mysqli_fetch_assoc($vid);
+										$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																			
+								?> 
+						
                     	<li>
                         	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_html.jpg" /></a>
+                        		<a href="<?php echo $vidpage_path; ?>">
+                                	<img src="<?php echo $fetcher['subj_logo_url']; ?>" />
+                                 </a>
                             </div>
                             <div class="subjname">
-                            	<a href="#">
-                            		HTML 4
+                            	<a href="<?php echo $vidpage_path; ?>">
+                            		<?php echo $fetcher['subj_name']; ?>
                                 </a>
                             </div>
                             <div class="tile_cat">
-                            	// Web design
+                            	<?php
+									$catid = $fetcher['cat_id'];
+									$subquery = data_selector("vish_cats","cat_id='$catid'");
+									$subfetch = mysqli_fetch_assoc($subquery) or die('can not fetch sub cat');
+									echo $subfetch['cat_name'];
+								?> 
                             </div>
                             <div class="tile_cat">
                             	// 5 days ago
                             </div>
                         </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_css2.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		CSS 2
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_html5.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		HTML5
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_css3.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		CSS 3
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_js.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		JavaScript
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
-                        <li>
-                        	<div class="subjimg">
-                        		<a href="#"><img src="assets/images/sqr_ajax.jpg" /></a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="#">
-                            		AJAX
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	// Web design
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
+                        <?php } // while loop ends here ?>                        
                     </ul>
             </div>
         </section>
