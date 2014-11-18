@@ -27,9 +27,10 @@
 		// IMAGE UPLOAD
 		if($name){
 			// start upload process 
-			$location = "assets/images/$name";
+			$location = "../assets/images/$name";
 			move_uploaded_file($tmp_name,$location) or die("Error in location syntax");		
 		}
+		$location = "http://".SITE_PATH."assets/images/$name";
 		$query = "INSERT INTO vish_subjects (level_id,cat_id,subj_name,subj_redirect_to,subj_logo_url,subj_title,subj_status,subj_madeon) 				VALUES('$fklevelid','$fkcatid','$bcrs_name','$bcrs_url','$location','$bcrs_title','$bcrs_status',now())";
 		$fire = mysqli_query($dbcon,$query) or die('Error in firing your insert query');
 		if($fire){
@@ -93,7 +94,7 @@
 						 ?>                         
                 			<li>
                     	<div class="tile_img">
-                        	<img src="../<?php echo $fetch['subj_logo_url'];?>" alt="HTML4" />
+                        	<img src="<?php echo $fetch['subj_logo_url'];?>" alt="HTML4" />
                             <div class="tile_over">
                             	<p><a href="<?php echo $fetch['subj_redirect_to']."?subj=".strtolower($subject_name);?>"><?php echo $fetch['subj_name'];?></a></p>
                             </div>

@@ -155,7 +155,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 								?>                      	
                             	<li>
                                     <div class="tile_img">
-                                        <a href="#"><img src="<?php echo SITE_PATH.$fetcher['subj_logo_url']; ?>" alt="subject image" /></a>
+                                        <a href="#"><img src="<?php echo $fetcher['subj_logo_url']; ?>" alt="subject image" /></a>
                                     </div>                       
                                      <div class="tile_subject"> <a href="#"><?php echo $fetcher['subj_name']; ?></a></div>                         	
                                     <div class="tile_cat">
@@ -186,7 +186,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 								?>                      	
                             	<li>
                                     <div class="tile_img">
-                                        <a href="#"><img src="<?php echo SITE_PATH.$fetcher['subj_logo_url']; ?>" alt="subject image" /></a>
+                                        <a href="#"><img src="<?php echo $fetcher['subj_logo_url']; ?>" alt="subject image" /></a>
                                     </div>                       
                                      <div class="tile_subject"> <a href="#"><?php echo $fetcher['subj_name']; ?></a></div>                         	
                                     <div class="tile_cat">
