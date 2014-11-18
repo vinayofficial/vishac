@@ -16,6 +16,7 @@
 	
 	// Default Site path
 	$fullurl = $_SERVER['HTTP_HOST'].'/vishac/';
-	define("SITE_PATH",$fullurl,TRUE);
+	define("SITE_PATH",$fullurl,TRUE);	
+	
 	
 ?>

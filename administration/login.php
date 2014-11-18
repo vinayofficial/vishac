@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	include_once 'inc_/_dbconnector.php';
 	include_once 'inc_/functions.php';
+	include_once 'inc_/_dbconnector.php';	
 	$error = null;
 	if(isset($_POST['admnlgn'])){
 		$admin = mysqli_real_escape_string($dbcon,stripslashes(trim($_POST['admnusr'])));
