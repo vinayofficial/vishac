@@ -412,15 +412,14 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
      		<div class="footbx">Hello there</div>
         	<div class="footbx"></div>
         	<div class="footbx">
-            	<h1>// SEND MESSAGE</h1>
-                <div class="text-tiny">// Send Feedback / message / suggestion / question anything...</div>
+            	<h1>// SEND A MESSAGE</h1>
                 <div class="footerform">
                 	<form name="feedback-form" id="feedback-form" method="post" action="">	
                     	<input type="text" name="vstrname" id="vstrname" placeholder="// Your Full Name Here" />
-                        <input type="email" name="vstrmail" id="vstrmail" placeholder="// Your Email address Here" />
-                        <input type="text" name="vstrsubj" id="vstrsubj" placeholder="// Message subject Here" />
-                        <textarea name="vstrmsg" id="vstrmsg" rows="4" placeholder="Message Here"></textarea>
-                        <button type="submit" name="vstrname" id="vstrname" /> <i class="fa fa-send"></i> SEND MESSAGE </form>                       
+                        <input type="email" name="vstrmail" id="vstrmail" placeholder="// Your Email or fb or twitter id Here" />
+                        <!--<input type="text" name="vstrsubj" id="vstrsubj" placeholder="// Message subject Here" />-->
+                        <textarea name="vstrmsg" id="vstrmsg" rows="4" placeholder="// Send Feedback / message / suggestion / question anything you feel about this site..."></textarea>
+                        <button type="submit" name="vstrname" id="vstrname" class="btn-fff" /> <i class="fa fa-send"></i> SEND MESSAGE </form>                       
                     </form>
                 </div>
             </div>
