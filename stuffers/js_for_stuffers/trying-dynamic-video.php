@@ -57,6 +57,48 @@ $nextvidurl = '#';
 <meta property="og:image" content="thumbnail_image" />
 <meta property="og:url" content="<?php echo $_SERVER['PHP_SELF'];?>" />
 <link rel="author" href="https://plus.google.com/117511589032708005943"/>
+<!---->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<style>
+body { padding-top: 50px; }
+
+/*#####################
+Additional Styles (required)
+######################*/
+
+.carousel-inner .item img {
+	width:100%;
+	height:100%;
+}
+.item .thumbnail {
+	margin-bottom:0;
+}
+.carousel-control.left, .carousel-control.right {
+	background-image:none !important;
+}
+.carousel-control {
+	background:	#39b3d7;
+	color:#fff;
+	padding: 4px 0;
+	width:26px;
+	top:auto;	
+	left:auto;
+	bottom:8px;
+	opacity:1;
+	text-shadow:none;
+}
+.carousel-control.right {
+	right:10px;
+}
+
+.carousel-control.left {
+	right: 40px;
+}
+</style>
 <?php #css and js files >>
 include_once '../../inc_/va_files.php'; ?>
 </head>
@@ -106,11 +148,17 @@ $url_thisvid = SITE_PATH.$levelname."/".$subjname."/".$get_thisvid['vid_pageurl'
 </div>
 <!----// playlist ends here----->
 <div id="wrapper">
+
 <div class="blacky">
 <div class="cmn-cntnr">
 <div class="vidbx">
 <div class="video">
-<iframe src="http://www.youtube.com/embed/<?php echo $get_thisvid['vid_YTurl'] ?>?autoplay=0" frameborder="0" allowfullscreen ></iframe>
+<?php if($get_vid['vid_YTurl'] == null || $get_vid['vid_YTurl'] == '' || $get_vid['vid_YTurl'] == 'something' || $get_vid['vid_YTurl'] == 'No video') { ?>
+		<img src="<?php echo SITE_PATH ?>assets/images/video404.jpg">	
+<?php } else {?>
+
+<iframe src="http://www.youtube.com/embed/<?php echo $get_vid['vid_YTurl'] ?>?autoplay=0" frameborder="0" allowfullscreen ></iframe>
+<?php } ?>
 </div>
 </div>
 <div class="video_ad">
@@ -157,14 +205,13 @@ href="<?php echo $nextvidurl; } ?>"
 </div>
 <!---right content----->
 <div class="rightcontent">
-<h3 class="title">Related tutorials...</h3>
+<h4>Related tutorials...</h4>
 <div class="box3x3">
-<div class="box33"><a href="#"><img src="<?php echo SITE_PATH ?>assets/images/html4.jpg" /></a></div>
-<div class="box33"><a href="#"><img src="<?php echo SITE_PATH ?>assets/images/css2.jpg" /></a></div>
-<div class="box33"><a href="#"><img src="<?php echo SITE_PATH ?>assets/images/html5.jpg" /></a></div>
-<div class="box33"><a href="#"><img src="<?php echo SITE_PATH ?>assets/images/css3.jpg" /></a></div>
-<div class="box33"><a href="#"><img src="<?php echo SITE_PATH ?>assets/images/js.jpg" /></a></div>
-<div class="box33"><a href="#"><img src="<?php echo SITE_PATH ?>assets/images/html4.jpg" /></a></div>
+<div class="box50"><a href="#"><img src="http://placehold.it/155x140/ff6600/fff" /></a></div>
+<div class="box50"><a href="#"><img src="http://placehold.it/155x140" /></a></div>
+<div class="box50"><a href="#"><img src="http://placehold.it/155x140" /></a></div>
+<div class="box50"><a href="#"><img src="http://placehold.it/155x140" /></a></div>
+           
 <div class="allink"><a href="tile.php" class="lnk-normal">Browse all tutorials...</a></div>
 </div>
 <div class="tile_ad300">

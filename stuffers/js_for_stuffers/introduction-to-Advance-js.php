@@ -110,7 +110,7 @@ $url_thisvid = SITE_PATH.$levelname."/".$subjname."/".$get_thisvid['vid_pageurl'
 <div class="cmn-cntnr">
 <div class="vidbx">
 <div class="video">
-<iframe src="http://www.youtube.com/embed/<?php echo $get_thisvid['vid_YTurl'] ?>?autoplay=0" frameborder="0" allowfullscreen ></iframe>
+<iframe src="http://www.youtube.com/embed/8xEssIHsBHk?autoplay=0" frameborder="0" allowfullscreen ></iframe>
 </div>
 </div>
 <div class="video_ad">

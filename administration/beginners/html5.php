@@ -4,7 +4,7 @@
 	<meta  charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
 <?php include '../inc_/functions.php'; ?>
-<?php include '../inc_/_dbconnector.php'; ?>
+<?php include '../inc_/_dbconnector.php'; check_login();?>
 <?php
 	// Fetch Subject path information for topic add
 	if(isset($_GET['subj'])){

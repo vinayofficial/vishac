@@ -340,7 +340,7 @@ ul.latestdsqs li span a{
     width: 100%;
 }
 .video_ad{
-	float:left;
+	float:right;
 	border:0px solid #fff;
 	width:300px;
 	height:270px;
@@ -438,7 +438,16 @@ a.disableicon:hover{
 	-moz-box-sizing:border-box;
 	float:left;
 	border:0px solid #000;}
-.box33 img{
+.box50{
+	width:50%;
+	height:auto;
+	padding:5px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	float:left;
+	border:0px solid #000;}
+.box33 img,
+.box50 img{
 	width:100%;
 	display:block;
 	box-sizing:border-box;
