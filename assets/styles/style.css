@@ -320,7 +320,7 @@ ul.latestdsqs li span a{
 	overflow:hidden;}
 .vidbx{
 	width:100%;
-	max-width:800px;
+	max-width:852px;
 	height:auto;
 	float:left;
 	padding-right:25px;
@@ -340,11 +340,11 @@ ul.latestdsqs li span a{
     width: 100%;
 }
 .video_ad{
-	float:right;
+	float:left;
 	border:0px solid #fff;
 	width:300px;
 	height:270px;
-	margin:5% 0 0 2%;
+	margin:5% 0 0 3%;
 	overflow:hidden;}
 .tag-text a{
 	font-family:arial;
