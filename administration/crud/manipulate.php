@@ -2,7 +2,7 @@
 //------------------------ check user login
 ?>
 
-<?php include_once '../inc_/_dbconnector.php';?>
+<?php include_once '../inc_/_dbconnector.php'; check_login(); ?>
 <?php
 	// Getting values
 	if(isset($_GET['enav'])){

@@ -1,6 +1,6 @@
 <?php 
 include '../inc_/functions.php';
-include '../inc_/_dbconnector.php';?>
+include '../inc_/_dbconnector.php'; check_login(); ?>
 <?php
 	//--------------------------EDIT LEVEL operations
 	// GETTING LEVEL DATA

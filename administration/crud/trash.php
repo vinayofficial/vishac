@@ -1,6 +1,7 @@
 <?php
 	include '../inc_/functions.php';
-	include '../inc_/_dbconnector.php';
+	include '../inc_/_dbconnector.php' ;
+	check_login();
 	// delete main header navigations / menus
 	if(isset($_GET['delnav'])){
 		$delnav = $_GET['delnav'];
