@@ -1,6 +1,7 @@
 <?php
 	require_once 'inc_/functions.php';
 	require_once 'inc_/_dbconnector.php';
+	check_login();
 ?>
 <!DOCTYPE html>
 <html lang="en">

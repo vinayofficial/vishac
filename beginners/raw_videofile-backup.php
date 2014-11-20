@@ -26,23 +26,19 @@ $selmeta = "SELECT * FROM vish_videometa WHERE vid_id='$videoid'";
 $fire_selmeta = mysqli_query($dbcon,$selmeta) or die("can not select meta data from videos");;
 $get_meta = mysqli_fetch_assoc($fire_selmeta);
 // Fetching previous video data
-$selprevid = "SELECT * FROM vish_videodata WHERE vid_id<'$videoid' AND subj_id='$subjid' ORDER BY vid_id DESC LIMIT 1";
+$selprevid = "SELECT * FROM vish_videodata WHERE vid_id<'$videoid' ORDER BY vid_id DESC LIMIT 1";
 $fire_selprevid = mysqli_query($dbcon,$selprevid);
-$previd = mysqli_fetch_assoc($fire_selprevid);
-if($previd){
-$previdurl = $previd['vid_pageurl'];
-}else {
-$previdurl = '#';
-}
+$get_previd = mysqli_fetch_assoc($fire_selprevid);
 // Fetching Next video data
-$selnextvid = "SELECT * FROM vish_videodata WHERE vid_id>'$videoid' AND subj_id='$subjid' ORDER BY vid_id LIMIT 1";
-$fire_nextvid = mysqli_query($dbcon,$selnextvid) or die('can not select next video.');
-$nextvid = mysqli_fetch_assoc($fire_nextvid);
-if($nextvid){
-$nextvidurl = $nextvid['vid_pageurl'];
-}else {
-$nextvidurl = '#';
+$selnextvid = "SELECT * FROM vish_videodata WHERE vid_id>'$videoid' ORDER BY vid_id LIMIT 1";
+$fire_nextvid = mysqli_query($dbcon,$selnextvid);
+if($fire_nextvid){
+$nextvid = mysqli_fetch_assoc($fire_nextvid) or die('can not fetch next video data');
+}else{
+$nextvid = '#';
 }
+// Previous and next video URL
+$prev_vid = SITE_PATH.$levelname.'/'.$subjname.'/'.$get_previd['vid_pageurl'];
 ?>
 <!doctype html>
 <html>
@@ -123,10 +119,7 @@ $url_thisvid = SITE_PATH.$levelname."/".$subjname."/".$get_thisvid['vid_pageurl'
 <div class="cmn-cntnr">
 <ul>
 <li><a id="playlist-btn" href="#" style="color:#CE5037;"><i class="fa fa-list fa-lg"></i><span class="vidnav_lbl">Playlist</span></a></li><!--
---><li><a <?php
-if($previdurl !== '#'){?>
-href="<?php echo $previdurl; } ?>"
-<?php if($previdurl =='#'){?> class="disableicon" <?php ;}?>><i class="fa fa-backward fa-lg"></i><span class="vidnav_lbl">Previous</span></a></li><!--
+--><li><a href="<?php echo $prev_vid; ?>"><i class="fa fa-backward fa-lg"></i><span class="vidnav_lbl">Previous</span></a></li><!--
 --><li><a href="#"><i class="fa fa-download fa-lg"></i><span class="vidnav_lbl">Source files</span></a></li><!--
 --><!--<li><a href="#"><i class="fa fa-comments fa-lg"></i><span class="vidnav_lbl">Discuss it</span></a></li><!--
 --><li>
@@ -134,16 +127,13 @@ href="<?php echo $previdurl; } ?>"
 <i class="fa fa-facebook-square fa-lg"></i><span class="vidnav_lbl">Share on facebook</span></a></li><!--
 --><li><a href="http://www.twitter.com/share?text=Just I found a very helpful video tutorial on #vishAcademy Watch it..."><i class="fa fa-twitter-square fa-lg"></i><span class="vidnav_lbl">Share on twitter</span></a></li><!--
 --><li><a target="_blank" href="https://plus.google.com/share?url=http:/<?php echo $_SERVER['PHP_SELF']; ?>"><i class="fa fa-google-plus-square fa-lg"></i><span class="vidnav_lbl">Share on G.plus</span></a></li><!--
---><li><a <?php
-if($nextvidurl !='#'){?>
-href="<?php echo $nextvidurl; } ?>"
-<?php if($nextvidurl =='#'){?> class="disableicon" <?php ;}?>><i class="fa fa-forward fa-lg"></i><span class="vidnav_lbl">Next</span></a></li>
+--><li><a href="<?php echo $nextvid['vid_pageurl'] ?>"><i class="fa fa-forward fa-lg"></i><span class="vidnav_lbl">Next</span></a></li>
 </ul>
 </div>
 </div>
 <div class="cmn-cntnr">
 <div class="left-content">
-<h1 class="water">// <?php echo $subjtitle ?></h1>
+<h1 class="water">// <?php echo $subjtitle.$nextvid['vid_pageurl'] ?></h1>
 <h2 class="title">// <?php echo $get_vid['vid_Ename']; ?></h2>
 <div id="text-content">
 <?php echo $get_vid['vid_desc1']; ?>

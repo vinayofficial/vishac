@@ -80,7 +80,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             		<span class="centro"><h1 class="megatitle">// LATEST UPLOAD</h1></span>
                 <ul id="latestonva">
                     <li>
-                        <h1 class="title">// Latest for Beginners</h1>
+                        <h4>// Latest for Beginners</h4>
                         <div class="latestsubx">
                             <!--subject goes here-->
                             <ul class="sub_tile">
@@ -130,7 +130,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                        </div>
                     </li>
                     <li>
-                        <h1 class="title">// Latest for Stuffers</h1>
+                        <h4>// Latest for Stuffers</h4>
                         <div class="latestsubx">
                             <!--subject goes here-->
                             <ul class="sub_tile">
@@ -178,7 +178,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                        </div>
                     </li>
                     <li>
-                        <h1 class="title">// Latest for Trickers</h1>
+                        <h4>// Latest for Trickers</h4>
                         <div class="latestsubx">
                             <!--subject goes here-->
                             <ul class="sub_tile">

@@ -53,6 +53,9 @@ h3.title{
 	color:#222;
 	font-family:arial;
 	font-size:1em;}
+h4{
+	color:#333;
+	font-family: Arial;}
 p,div.text-content,
 ol li{
     color: #555;
@@ -190,8 +193,9 @@ a:hover{
 	height:4px;
 	background:#3D4760;}
 ul#latestonva > li{
-	background: none repeat scroll 0 0 #f1f1f1;
-    border-radius: 5px;
+	/*background: none repeat scroll 0 0 #f1f1f1;*/
+    border-radius: 0px;
+	border-right:1px dashed #e5e5e5;
     display: inline-block;
     margin: 19px 18px;
     max-width: 33%;
@@ -276,9 +280,15 @@ ul.sub_tile li img{
 	text-align:center;
 	display:table-cell;
 	vertical-align:middle;}
-.tile_subject{
-	font-size:14px;
-	margin:5px 0;}
+.tile_subject a{
+	color: #666;
+    display: block;
+    font-weight: bold;
+    margin: 5px 0;
+    transition: all 0.5ms ease 0s;}
+.sub_tile li:hover a{
+	color:#333;
+	text-decoration:none;}
 .section2part2{
 	margin:80px 0 0;}
 ul.latestdsqs{
@@ -463,20 +473,25 @@ header{
 	left:0;
 	top:0;
 	z-index:999;
-	border-top:3px solid #0361ab;
+	border-top:3px solid #3399FF;
 	box-shadow: 0 11px 20px -18px #666666;
 	-moz-box-shadow: 0 11px 20px -18px #666666;
 	-webkit-box-shadow: 0 11px 20px -18px #666666;
 	-o-box-shadow: 0 11px 20px -18px #666666;
 	-ms-box-shadow: 0 11px 20px -18px #666666;
-	font-family: 'Oswald', sans-serif;}
+	font-family: 'Oswald', sans-serif;
+	background:rgba(255,255,255,0.6);
+	transition:all 0.5s;}
+header:hover{
+	background:rgba(255,255,255,1);
+	transition:all 0.5s;}
 header .cmn-cntnr{
 	padding:0;}
 #wrapper{
 	width:100%;
 	height:auto;
 	overflow:hidden;
-	margin-top:80px;}
+	margin-top:0px;}
 #logo{
 	padding:13px 0 0;
 	float:left;
@@ -504,10 +519,10 @@ nav#mainav{
 	color:#222;
 	border-right:1px dashed #ddd;}
 #mainav ul>li>a:hover{
-	background:#0361ab;
+	background:#3399FF;
 	color:#fff;
 	text-decoration:none;
-	border-right:1px solid #0361ab;
+	border-right:1px solid #3399FF;
 	/*box-shadow:1px 1px 1px 1px #ccc inset;*/}
 
 /**-----------*/
@@ -775,6 +790,9 @@ pre code b{
 .tile_ago{
 	font-size:10px;
 	color:#666;}
+.tile_cat, .tile_ago{
+	font-family:arial;
+	font-style:italic;}
 .tile_over{
 	position:absolute;
 	left:0;
