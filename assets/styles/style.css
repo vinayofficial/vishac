@@ -36,7 +36,9 @@ h1.megatitle{
 	color:#333;
 	font-family: 'Oxygen', sans-serif;
 	font-size:1.5em;
-	font-weight:bold;}
+	font-weight:bold;
+	margin-top:40px;
+	display:block;}
 
 h1.title{
 	color:#333;
@@ -114,7 +116,8 @@ a:hover{
 	margin:0 auto;
 	font-family:arial;
 	color:#fff;
-	padding:50px 0 0;}	
+	padding:50px 0 0;
+	min-height:500px;}	
 .wlcm-tagline{
 	color:#FF9;}
 .frontsocialbox{
@@ -158,10 +161,15 @@ a:hover{
 	display:block;}
 
 .welcome-txt{
-	float:left;
-	width:40%;}
+	float:none;
+	width:55%;
+	text-align:center;
+	margin:0 auto;}
 #frontsection1 h2{
-	line-height:1.5em;}
+	line-height:1.5em;
+	text-shadow:1px 2px 2px #222;
+	font-size:2.5em;
+	margin-top:90px;}
 .howto-heading{
 	width:100%;
 	text-align:center;
@@ -423,13 +431,14 @@ a.disableicon:hover{
 	border:0px solid #000;
 	margin:20px 0 0;}
 .box3x3{
-	width:100%;
+	width:99%;
 	max-width:330px;
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	border:1px solid #ccc;
 	overflow:hidden;
-	margin:0 0 20px;}
+	margin:0 0 20px;
+	float:right;}
 .box33{
 	width:33%;
 	height:auto;
@@ -1122,14 +1131,16 @@ ul.footlink>li>a{
 	height:auto;
 	min-height:300px;
 	float:left;
-	border-right:1px solid #606B6D;
 	box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	padding-left:25px;}
+	padding:0 25px;}
 .footbx:last-child{
 	border:0;}
 .footbx h1{
 	line-height:10px;}
+.footbx:nth-child(2){
+	border-left:1px dashed #3a3a3a;
+	border-right:1px dashed #3a3a3a;}
 .footbx .text-tiny{
 	font-size:12px;
 	color:#ccc;}
@@ -1202,3 +1213,36 @@ ul.footlink>li>a{
 	padding-right:30px;}
 .fb-comments-bx{
 	margin:30px 0;}
+/*custom sidr p*/
+
+.sidr p {
+    font-size: 13px;
+    line-height: 2;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 2px;
+    padding-left: 18px;
+}
+.dimension {
+    height: 30px;
+    line-height: 30px;
+}
+.gallery.clearfix>li,
+.gallery.clearfix>li:hover{
+	height:30px;
+	line-height:15px;}
+
+/*----*/
+.btn-stroke {
+    border: 1px solid #fff !important;
+    color: #fff;
+	transition:all 0.5s;}
+	
+.btn-stroke:hover{
+	background:#fff;
+	transition:all 0.5s;}
+.megabtn {
+    letter-spacing: 0.5px;
+    margin-top: 90px;
+    padding: 13px 31px;
+    text-transform: uppercase;}

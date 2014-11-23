@@ -9,6 +9,44 @@
 <title>Learn major an minor computer science projects with vishAcademy 's Hindi video tutorials</title>
 <?php #css and js files >> 
 include_once 'inc_/va_files.php'; ?>
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<style>
+/*#####################
+Additional Styles (required)
+######################*/
+
+.carousel-inner .item img {
+	width:100%;
+	height:100%;
+}
+.item .thumbnail {
+	margin-bottom:0;
+}
+.carousel-control.left, .carousel-control.right {
+	background-image:none !important;
+}
+.carousel-control {
+	background:	none;
+	color:#3a3a3a;
+	padding: 4px 0;
+	width:26px;
+	top:auto;	
+	left:auto;
+	bottom:0;
+	opacity:1;
+	text-shadow:none;
+}
+.carousel-control.right {
+	right:10px;
+}
+
+.carousel-control.left {
+	right: 40px;
+}
+</style>
 </head>
 <body>	
     <?php #header
@@ -20,6 +58,7 @@ include_once 'inc_/va_files.php'; ?>
             	<div class="welcome-txt">
 	            	<h2>Free computer science education videos in Hindi Language.</h2>
                     <!--<span class="wlcm-tagline"><b>Learn</b> / <b>Ask</b> / <b>Help</b> everything is totally free for always</span>	-->
+                    <a class="btn btn-stroke btn-lg megabtn">Start Learning</a>
                 </div>                
                 <!--Social login box-->
                 <?php /* <div class="frontsocialbox">
@@ -45,7 +84,7 @@ include_once 'inc_/va_files.php'; ?>
                 </div> */ ?>                
                 <div class="clr"></div>
                 <!--How to use vishAcademy-->
-                <div class="howtobx">
+                <!--<div class="howtobx">
                 	<div class="howto-heading">
                 		<div class="heading">How to use </div>
                     </div>
@@ -72,7 +111,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                             <div class="link"><a href="#" class="fff u">Start here »</a></div>
                         </li>                      
                     </ul>
-                </div>
+                </div>-->
             </div>            
         </section>     
         <section id="frontsection2">        	
@@ -409,17 +448,63 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
      <!--footer-->
      <section id="footer">
      	<div class="cmn-cntnr">
-     		<div class="footbx">Hello there</div>
-        	<div class="footbx"></div>
+     		<div class="footbx">
+            	<h3><i class="fa fa-user"></i> Users Review</h3>
+                <!-- Carousel
+            ================================================== -->
+            <div id="myCarousel" class="carousel slide">
+                 <!-- Indicators -->         
+                <div class="carousel-inner">           
+                    <div class="item active">
+                        <blockquote>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                          <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                        </blockquote>
+                    </div>
+                    <div class="item">
+                        <blockquote>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                          <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                        </blockquote>
+                     </div>  
+                    <div class="item">
+                        <blockquote>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                          <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                        </blockquote>
+                    </div>                                                                                   
+                </div> 
+               <div class="carousel-controls">
+                  <a class="carousel-control left" href="#myCarousel" data-slide="prev"><span class="fa fa-angle-double-left"></span></a>
+                  <a class="carousel-control right" href="#myCarousel" data-slide="next"><span class="fa fa-angle-double-right"></span></a>
+              </div>               
+                                                            
+            </div><!-- End Carousel -->
+            </div>
         	<div class="footbx">
-            	<h1>// SEND A MESSAGE</h1>
+            	<h3><i class="fa fa-bell"></i> Join Alerts</h3>
                 <div class="footerform">
+                	<p>
+                      Fill up these information below and join the <i>vish Alerts </i> on your email and we will send you an email on every new subject / video upload on our site / channel.
+                    </p>
+                	<form name="feedback-form" id="feedback-form" method="post" action="">	
+                    	<input type="text" name="vstrname" id="vstrname" placeholder="// Your Full Name Here" />
+                        <input type="email" name="vstrmail" id="vstrmail" placeholder="// Your Email address Here" />                        
+                        <button type="submit" name="vstrname" id="vstrname" class="btn-fff" />
+                        	 <i class="fa fa-bell"></i> Ready to join 
+                        </button>                       
+                    </form>
+                </div>
+            </div>
+        	<div class="footbx">
+            	<h3><i class="fa fa-envelope"></i> SEND A MESSAGE</h3>
+                <div class="footerform">                	
                 	<form name="feedback-form" id="feedback-form" method="post" action="">	
                     	<input type="text" name="vstrname" id="vstrname" placeholder="// Your Full Name Here" />
                         <input type="email" name="vstrmail" id="vstrmail" placeholder="// Your Email or fb or twitter id Here" />
                         <!--<input type="text" name="vstrsubj" id="vstrsubj" placeholder="// Message subject Here" />-->
                         <textarea name="vstrmsg" id="vstrmsg" rows="4" placeholder="// Send Feedback / message / suggestion / question anything you feel about this site..."></textarea>
-                        <button type="submit" name="vstrname" id="vstrname" class="btn-fff" /> <i class="fa fa-send"></i> SEND MESSAGE </form>                       
+                        <button type="submit" name="vstrname" id="vstrname" class="btn-fff" /> <i class="fa fa-envelope"></i> SEND MESSAGE </form>                       
                     </form>
                 </div>
             </div>

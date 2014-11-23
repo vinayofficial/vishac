@@ -135,7 +135,7 @@ while($get_thisvid = mysqli_fetch_assoc($fire_sel_thisvid)){
 $url_thisvid = SITE_PATH.$levelname."/".$subjname."/".$get_thisvid['vid_pageurl'];
 ?>
 <p class="vidtitle_en iframe" >
-<a href="<?php echo $url_thisvid; ?>" data-tooltip="<?php echo $get_thisvid['vid_Hname'] ?>"> » <?php echo $get_thisvid['vid_Ename']; ?> </a>
+<a href="<?php echo $url_thisvid; ?>"  data-tooltip="<?php echo $get_thisvid['vid_Hname'] ?>"> » <?php echo $get_thisvid['vid_Ename']; ?> </a>
 </p>
 <?php } ?>
 </li>
