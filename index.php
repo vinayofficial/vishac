@@ -46,6 +46,21 @@ Additional Styles (required)
 .carousel-control.left {
 	right: 40px;
 }
+
+/*for footer dropdowns*/
+.footselect select{
+	height:40px;
+	background:#252525;
+	color:#717c80;
+	border:0;
+	border-bottom:1px dashed #3a3a3a;}
+.footselect select:focus{
+	background:#3a3a3a;}
+.footselect{
+	width:95px;
+	overflow:hidden;
+	display:inline-block;
+	float:left;}
 </style>
 </head>
 <body>	
@@ -501,7 +516,17 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                 <div class="footerform">                	
                 	<form name="feedback-form" id="feedback-form" method="post" action="">	
                     	<input type="text" name="vstrname" id="vstrname" placeholder="// Your Full Name Here" />
-                        <input type="email" name="vstrmail" id="vstrmail" placeholder="// Your Email or fb or twitter id Here" />
+                       
+                        <div class="footselect">
+                            <select class="" required>
+                                <option> // Select.</option>
+                                <option> Email id »</option>
+                                <option> Facebook id »</option>
+                                <option> Twitter id »</option>
+                            </select>
+                        </div>
+                        <input type="text" style="width:246px; margin-top:0;" placeholder="and write here" required>
+                        
                         <!--<input type="text" name="vstrsubj" id="vstrsubj" placeholder="// Message subject Here" />-->
                         <textarea name="vstrmsg" id="vstrmsg" rows="4" placeholder="// Send Feedback / message / suggestion / question anything you feel about this site..."></textarea>
                         <button type="submit" name="vstrname" id="vstrname" class="btn-fff" /> <i class="fa fa-envelope"></i> SEND MESSAGE </form>                       
