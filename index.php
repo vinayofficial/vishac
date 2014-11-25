@@ -11,7 +11,9 @@
 			if($altmail != '' && $altname != ''){
 				$push = push_data("subscribers","sbc_name,sbc_email,sbc_joindate","'$altname','$altmail',NOW()");		
 				if($push){
-				header("location: ".$_SERVER['PHP_SELF']);			
+					echo "Success !!";
+					header("location: ".$_SERVER['PHP_SELF']);	
+						
 			}	
 		}		
 		$error = "No field can be left blank !! ";
@@ -475,6 +477,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             </div>
         </section>
     </div>	
+    
      <!--footer-->
      <section id="footer">
      	<div class="cmn-cntnr">
@@ -553,7 +556,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
      </section>
     <?php include_once 'inc_/footer.php';?>
     <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade Fur" id="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
