@@ -54,7 +54,8 @@
                     <span>Mail & letters</span>
                 </a>
                 <ul class="sub">
-                    <li class="active"><a id="pages_categories" href="trickers.php">All users</a></li>
+                    <li><a id="pages_categories" href="mails/messages.php">Messages</a></li>
+                    <li><a id="pages_categories" href="mails/subscribers.php">Subscribers</a></li>
                 </ul>
             </li>    
             <li class="sub-menu">

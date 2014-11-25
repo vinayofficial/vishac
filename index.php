@@ -2,6 +2,21 @@
 // database file is include in functions.php
  require_once 'inc_/functions.php';
 ?>
+<?php
+	//----------Alert form
+	$error = null;
+	if(isset($_POST['altsend'])){
+		$altmail = mysqli_real_escape_string($dbcon,trim($_POST['altmail']));
+		$altname = mysqli_real_escape_string($dbcon,trim($_POST['altname']));
+			if($altmail != '' && $altname != ''){
+				$push = push_data("subscribers","sbc_name,sbc_email,sbc_joindate","'$altname','$altmail',NOW()");		
+				if($push){
+				header("location: ".$_SERVER['PHP_SELF']);			
+			}	
+		}		
+		$error = "No field can be left blank !! ";
+	}
+?>
 <!doctype html>
 <html>
 <head>
@@ -502,12 +517,13 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                 	<p>
                       Fill up these information below and join the <i>vish Alerts </i> on your email and we will send you an email on every new subject / video upload on our site / channel.
                     </p>
-                	<form name="feedback-form" id="feedback-form" method="post" action="">	
-                    	<input type="text" name="vstrname" id="vstrname" placeholder="// Your Full Name Here" />
-                        <input type="email" name="vstrmail" id="vstrmail" placeholder="// Your Email address Here" />                        
-                        <button type="submit" name="vstrname" id="vstrname" class="btn-fff" />
-                        	 <i class="fa fa-bell"></i> Ready to join 
-                        </button>                       
+                    <?php echo $error; ?>
+                	<form name="alert-form" id="alert-form" class="footerform" method="post" action="<?php $_SERVER['PHP_SELF']."?joinalert"?>">	
+                    	<input type="text" name="altname" id="vstrname" placeholder="// Your Full Name Here" />
+                        <input type="email" name="altmail" id="vstrmail" placeholder="// Your Email address Here" />
+                        <button type="submit" name="altsend" id="vstrname" class="btn-fff" />
+                        	 <i class="fa fa-bell"></i> join Alerts 
+                        </button>                        
                     </form>
                 </div>
             </div>
@@ -536,5 +552,23 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         </div>
      </section>
     <?php include_once 'inc_/footer.php';?>
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

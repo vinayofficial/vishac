@@ -44,7 +44,7 @@
             <div class="col-sm-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        Heading Navigation Management 
+                        Vish Academy <b>Alert / Subscribers List</b>
                         <span class="tools pull-right">
                             <a href="javascript:;" class="fa fa-chevron-down"></a>
                             <a href="javascript:;" class="fa fa-cog"></a>
@@ -62,14 +62,12 @@
                                 <th>Redirect to</th>
                                 <th>Active</th>
                                 <th>Edit</th>
-                                <th>Delete</th>                                
-                                <th>Admin visit</th>                                
-                                <th>User visit</th>
+                                <th>Delete</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php
-                            	$nav_select = 'select * from header_nav';
+                            	$nav_select = 'select * from subscribers';
 								$nav_query = mysqli_query($dbcon,$nav_select);
 								if(!$nav_query){echo 'can not data selected';}	
 								$i=1;															
@@ -77,16 +75,15 @@
 							?>
                             <tr>
                                 <td><?php echo $i; ?></td>
-                                <td><?php echo $fetch_nav['nav_name']; ?></td>
-                                <td><?php echo $fetch_nav['nav_url'] ?></td>
-                                <td><?php $check_active = $fetch_nav['nav_visible']; 
-									if($check_active == 1){?> <span class="badge bg-primary">Yes</span> <?php } else {?> <span class="badge">No</span> <?php }?>
+                                <td><?php echo $fetch_nav['sbc_name']; ?></td>
+                                <td><?php echo $fetch_nav['sbc_email'] ?></td>
+                                <td><?php $check_active = $fetch_nav['sbc_status']; 
+									if($check_active == 1){?> <span class="badge bg-primary"><i class="fa fa-bell"></i></span> <?php } else {?> <span class="badge bg-warning"><i class="fa fa-times"></i>
+</span> <?php }?>
                                 </td>
-                                <td><a href="crud/manipulate.php?enav=<?php echo $fetch_nav['nav_id']; ?>" class="btn btn-primary" onClick="return confirm('We are going to edit : <?php echo $fetch_nav['nav_name'] ?>');" ><i class="fa fa-pencil"></i></a>    
+                                <td><a href="crud/manipulate.php?enav=<?php echo $fetch_nav['sbc_id']; ?>" class="btn btn-primary" onClick="return confirm('We are going to edit : <?php echo $fetch_nav['sbc_name'] ?>');" ><i class="fa fa-pencil"></i></a>    
                                 </td>
-                                <td><a href="crud/trash.php?delnav=<?php echo $fetch_nav['nav_id']; ?>" class="btn btn-danger" onClick="return confirm('Are you sure ?');"><i class="fa fa-trash-o"></i></a></td>
-                                <td><a href="<?php echo ADMIN_BASEURL.$fetch_nav['nav_url']?>" class="btn btn-success"><i class="fa fa-user"></i> Admin</a></td>
-                                <td><a href="<?php echo USER_BASEURL.$fetch_nav['nav_url']?>" class="btn btn-primary" target="_blank"><i class="fa fa-users"></i> Users  </a></td>
+                                <td><a href="crud/trash.php?delnav=<?php echo $fetch_nav['sbc_id']; ?>" class="btn btn-danger" onClick="return confirm('Are you sure ?');"><i class="fa fa-trash-o"></i></a></td>
                             </tr>    
                             <?php $i++; } ?>
                             </tbody>

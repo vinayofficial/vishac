@@ -1,6 +1,7 @@
 <?php require_once '../inc_/functions.php'; ?>
 <?php
 	 include_once '../inc_/_dbconnector.php';
+	 check_login();
  ?>
 <?php
 	// submitting SEO Information

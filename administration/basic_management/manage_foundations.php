@@ -1,6 +1,7 @@
 <?php
 	 include '../inc_/functions.php'; 
 	 include '../inc_/_dbconnector.php';
+	 check_login();
 ?>
 <?php
 	// ADD LEVEL FORM
