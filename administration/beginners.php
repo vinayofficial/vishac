@@ -27,7 +27,7 @@
 		if(isset($_POST['bcourse_active']) && $_POST['bcourse_active'] == true ){ $bcrs_status =1;} else {$bcrs_status =0;}		
 		//Image variables
 		$name = $_FILES['coursepic']['name'.date('ymhhms')];
-		$name = $name.date('ymdhms');
+		$name = $name.date('ymdhms').'.jpg';
 		$tmp_name = $_FILES['coursepic']['tmp_name'];	
 		// IMAGE UPLOAD
 		if($name){
