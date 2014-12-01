@@ -60,10 +60,10 @@ h4{
 	font-family: Arial;}
 p,div.text-content,
 ol li{
-    color: #555;
-	font-family: 'Oxygen', sans-serif;
-    font-size: 15px;
-    line-height: 25px;
+    color: #333;
+	font-family: 'Droid Serif', serif;;
+    font-size: 16px;
+    line-height: 33px;
 	text-align:justify;}
 pre {
 	line-height:25px !important;}
@@ -1238,7 +1238,10 @@ ul.footlink>li>a{
 	line-height:15px;}
 
 /*----*/
-.btn-stroke {
+.btn-stroke,
+.btn-stroke:active,
+.btn-stroke:visited,
+.btn-stroke:focus {
     border: 1px solid #fff !important;
     color: #fff;
 	transition:all 0.5s;}

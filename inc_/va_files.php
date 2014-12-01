@@ -18,3 +18,4 @@
 <link rel="stylesheet" href="<?php echo SITE_PATH ?>assets/plugs/highlight/styles/docco.css" />
 <script src="<?php echo SITE_PATH ?>assets/plugs/highlight/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,700italic,400italic' rel='stylesheet' type='text/css'>

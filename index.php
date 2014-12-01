@@ -19,6 +19,20 @@
 		$error = "No field can be left blank !! ";
 	}
 ?>
+
+<?php
+	//**--- Send a message
+	if(isset($_POST['msgsender'])){
+		$msgname = protect_it($_POST['msgname']);
+		$msgusing = mysqli_real_escape_string($dbcon,protect_it($_POST['msgusing']));
+		$msgfrom = mysqli_real_escape_string($dbcon,protect_it($_POST['msgfrom']));		
+		$msgbody = mysqli_real_escape_string($dbcon,protect_it($_POST['msgbody']));
+		$messagesent = push_data("usermsg",null,"null,'$msgusing','$msgfrom','$msgbody',NOW(),0");
+		if($messagesent){
+			echo '<script>alert(\'success\');</script>';
+		}
+	}
+?>
 <!doctype html>
 <html>
 <head>
@@ -90,7 +104,7 @@ Additional Styles (required)
             	<div class="welcome-txt">
 	            	<h2>Free computer science education videos in Hindi Language.</h2>
                     <!--<span class="wlcm-tagline"><b>Learn</b> / <b>Ask</b> / <b>Help</b> everything is totally free for always</span>	-->
-                    <a class="btn btn-stroke btn-lg megabtn">Start Learning</a>
+                    <a href="#begin" class="btn btn-stroke btn-lg megabtn">Start Learning</a>
                 </div>                
                 <!--Social login box-->
                 <?php /* <div class="frontsocialbox">
@@ -296,7 +310,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                        </div>
                     </li>
                 </ul>
-                <hr class="digonalhr"/>                                                
+               <a name="begin"> <hr class="digonalhr"/> </a>
 	             <!--Discussion part-->
                 <?php /* <div class="section2part2">
                 	<h1 class="title">// Latest for Discussion</h1>
@@ -482,7 +496,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
      <section id="footer">
      	<div class="cmn-cntnr">
      		<div class="footbx">
-            	<h3><i class="fa fa-user"></i> Users Review</h3>
+            	<h3><a name="test"><i class="fa fa-user"></i></a> Users Review</h3>
                 <!-- Carousel
             ================================================== -->
             <div id="myCarousel" class="carousel slide">
@@ -519,7 +533,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                 <div class="footerform">
                 	<p>
                       Fill up these information below and join the <i>vish Alerts </i> on your email and we will send you an email on every new subject / video upload on our site / channel.
-                    </p>
+                    </p><ol></ol>
                     <?php echo $error; ?>
                 	<form name="alert-form" id="alert-form" class="footerform" method="post" action="<?php $_SERVER['PHP_SELF']."?joinalert"?>">	
                     	<input type="text" name="altname" id="vstrname" placeholder="// Your Full Name Here" />
@@ -534,21 +548,22 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             	<h3><i class="fa fa-envelope"></i> SEND A MESSAGE</h3>
                 <div class="footerform">                	
                 	<form name="feedback-form" id="feedback-form" method="post" action="">	
-                    	<input type="text" name="vstrname" id="vstrname" placeholder="// Your Full Name Here" />
+                    	<input type="text" name="msgname" id="msgname" placeholder="// Your Full Name Here" />
                        
                         <div class="footselect">
-                            <select class="" required>
-                                <option> // Select.</option>
-                                <option> Email id »</option>
-                                <option> Facebook id »</option>
-                                <option> Twitter id »</option>
+                            <select name="msgusing" id="msgusing" class="" required>
+                                <option value=""> // Select.</option>
+                                <option value="email"> Email id »</option>
+                                <option value="facebook"> Facebook id »</option>
+                                <option value="twitter"> Twitter id »</option>
                             </select>
                         </div>
-                        <input type="text" style="width:246px; margin-top:0;" placeholder="and write here" required>
+                        <input name="msgfrom" id="msgfrom" type="text" style="width:246px; margin-top:0;" placeholder="and write here" required>
                         
                         <!--<input type="text" name="vstrsubj" id="vstrsubj" placeholder="// Message subject Here" />-->
-                        <textarea name="vstrmsg" id="vstrmsg" rows="4" placeholder="// Send Feedback / message / suggestion / question anything you feel about this site..."></textarea>
-                        <button type="submit" name="vstrname" id="vstrname" class="btn-fff" /> <i class="fa fa-envelope"></i> SEND MESSAGE </form>                       
+                        <textarea name="msgbody" id="msgbody" rows="4" placeholder="// Send Feedback / message / suggestion / question anything you feel about this site..."></textarea>
+                        <input type="submit" name="msgsender" id="msgsender" class="btn-fff" value="Send message" /> 
+                         </form>                       
                     </form>
                 </div>
             </div>
@@ -573,5 +588,23 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     </div>
   </div>
 </div>
+<script>
+$(document).ready(function(e) {
+  $('a[href*=#]:not([href=#])').click(function() {
+		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
+			|| location.hostname == this.hostname) {
+	
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			   if (target.length) {
+				 $('html,body').animate({
+					 scrollTop: target.offset().top
+				}, 1000);
+				return false;
+			}
+		}
+	});
+ });
+</script>
 </body>
 </html>

@@ -17,7 +17,8 @@
 		}
 		if($limit != null){
 			$myquery .= " ".$limit;
-		}		
+		}
+		//echo $myquery;		
 		$query_fire = mysqli_query($dbcon,$myquery) or die('can not fire this query. check either function or given table information');
 		
 		if ($query_fire){
@@ -34,9 +35,9 @@
 		if($fields != null){
 			$fields = "(".$fields.")";
 		}
-		$Inserter = "INSERT INTO ".$tablename.$fields." VALUES (".$values.")";			
+		echo $Inserter = "INSERT INTO ".$tablename.$fields." VALUES (".$values.")";			
 		
-		$pushfire = mysqli_query($dbcon,$Inserter) or die("<br /> can not push data. please check provided informations !!");		
+		$pushfire = mysqli_query($dbcon,$Inserter) or die("<br /> can not push data. please check provided informations !!". mysqli_error($dbcon));		
 		
 		return $pushfire;
 	}
@@ -93,5 +94,10 @@
 	if(isset($_SESSION['user']) == false){
 		header('location: login.php');
 	}
+	}
+//----------------------- Send secure data
+	function protect_it($data){
+		 $protected = trim(htmlentities(strip_tags($data)));
+		 return $protected;
 	}
 ?>
