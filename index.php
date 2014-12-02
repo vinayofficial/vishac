@@ -2,23 +2,7 @@
 // database file is include in functions.php
  require_once 'inc_/functions.php';
 ?>
-<?php
-	//----------Alert form
-	$error = null;
-	if(isset($_POST['altsend'])){
-		$altmail = mysqli_real_escape_string($dbcon,trim($_POST['altmail']));
-		$altname = mysqli_real_escape_string($dbcon,trim($_POST['altname']));
-			if($altmail != '' && $altname != ''){
-				$push = push_data("subscribers","sbc_name,sbc_email,sbc_joindate","'$altname','$altmail',NOW()");		
-				if($push){
-					echo "Success !!";
-					header("location: ".$_SERVER['PHP_SELF']);	
-						
-			}	
-		}		
-		$error = "No field can be left blank !! ";
-	}
-?>
+
 
 <?php
 	//**--- Send a message
@@ -534,11 +518,11 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                 	<p>
                       Fill up these information below and join the <i>vish Alerts </i> on your email and we will send you an email on every new subject / video upload on our site / channel.
                     </p><ol></ol>
-                    <?php echo $error; ?>
-                	<form name="alert-form" id="alert-form" class="footerform" method="post" action="<?php $_SERVER['PHP_SELF']."?joinalert"?>">	
+                    <?php // echo $error; ?>
+                	<form name="alert-form" id="alert-form" class="footerform">	
                     	<input type="text" name="altname" id="vstrname" placeholder="// Your Full Name Here" />
                         <input type="email" name="altmail" id="vstrmail" placeholder="// Your Email address Here" />
-                        <button type="submit" name="altsend" id="vstrname" class="btn-fff" />
+                        <button type="submit" name="altsend" id="altsend" class="btn-fff" />
                         	 <i class="fa fa-bell"></i> join Alerts 
                         </button>                        
                     </form>
@@ -588,6 +572,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     </div>
   </div>
 </div>
+<script src="assets/js/custom.js"></script>
 <script>
 $(document).ready(function(e) {
   $('a[href*=#]:not([href=#])').click(function() {

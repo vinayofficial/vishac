@@ -35,7 +35,7 @@
 		if($fields != null){
 			$fields = "(".$fields.")";
 		}
-		echo $Inserter = "INSERT INTO ".$tablename.$fields." VALUES (".$values.")";			
+		$Inserter = "INSERT INTO ".$tablename.$fields." VALUES (".$values.")";			
 		
 		$pushfire = mysqli_query($dbcon,$Inserter) or die("<br /> can not push data. please check provided informations !!". mysqli_error($dbcon));		
 		
