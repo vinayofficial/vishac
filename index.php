@@ -2,21 +2,6 @@
 // database file is include in functions.php
  require_once 'inc_/functions.php';
 ?>
-
-
-<?php
-	//**--- Send a message
-	if(isset($_POST['msgsender'])){
-		$msgname = protect_it($_POST['msgname']);
-		$msgusing = mysqli_real_escape_string($dbcon,protect_it($_POST['msgusing']));
-		$msgfrom = mysqli_real_escape_string($dbcon,protect_it($_POST['msgfrom']));		
-		$msgbody = mysqli_real_escape_string($dbcon,protect_it($_POST['msgbody']));
-		$messagesent = push_data("usermsg",null,"null,'$msgusing','$msgfrom','$msgbody',NOW(),0");
-		if($messagesent){
-			echo '<script>alert(\'success\');</script>';
-		}
-	}
-?>
 <!doctype html>
 <html>
 <head>
@@ -521,7 +506,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                     <?php // echo $error; ?>
                 	<form name="alert-form" id="alert-form" class="footerform">	
                     	<input type="text" name="altname" id="vstrname" placeholder="// Your Full Name Here" />
-                        <input type="email" name="altmail" id="vstrmail" placeholder="// Your Email address Here" />
+                        <input type="email" name="altmail" id="vstrmail" placeholder="// Your Email address Here"  />
                         <button type="submit" name="altsend" id="altsend" class="btn-fff" />
                         	 <i class="fa fa-bell"></i> join Alerts 
                         </button>                        
@@ -530,8 +515,8 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             </div>
         	<div class="footbx">
             	<h3><i class="fa fa-envelope"></i> SEND A MESSAGE</h3>
-                <div class="footerform">                	
-                	<form name="feedback-form" id="feedback-form" method="post" action="">	
+                <div class="footerform usrmsgbx">                	
+                	<form name="feedback-form" id="feedback-form">	
                     	<input type="text" name="msgname" id="msgname" placeholder="// Your Full Name Here" />
                        
                         <div class="footselect">
@@ -543,11 +528,10 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                             </select>
                         </div>
                         <input name="msgfrom" id="msgfrom" type="text" style="width:246px; margin-top:0;" placeholder="and write here" required>
-                        
-                        <!--<input type="text" name="vstrsubj" id="vstrsubj" placeholder="// Message subject Here" />-->
                         <textarea name="msgbody" id="msgbody" rows="4" placeholder="// Send Feedback / message / suggestion / question anything you feel about this site..."></textarea>
-                        <input type="submit" name="msgsender" id="msgsender" class="btn-fff" value="Send message" /> 
-                         </form>                       
+                        <button name="msgsender" id="msgsender" class="btn-fff">
+                        <i class="fa fa-plane"></i> Send Message
+                        </button>
                     </form>
                 </div>
             </div>

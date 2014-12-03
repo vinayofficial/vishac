@@ -66,7 +66,7 @@
 		}
 		
 		//CONFUSED !!! ECHO THIS QUERY 
-		//echo $selector;
+		//echo $selector; die;
 		
 		$pulldata = mysqli_query($dbcon,$selector) or die("can not pull data. check provided information");
 		
