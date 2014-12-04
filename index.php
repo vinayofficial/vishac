@@ -501,9 +501,9 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             	<h3><i class="fa fa-bell"></i> Join Alerts</h3>
                 <div class="footerform">
                 	<p>
-                      Fill up these information below and join the <i>vish Alerts </i> on your email and we will send you an email on every new subject / video upload on our site / channel.
-                    </p><ol></ol>
-                    <?php // echo $error; ?>
+                      Fill up these information below and join the <i>vish Alerts </i> on your email and we will send you an email on every new subject / video upload on our site / channel.                      
+                    </p>
+                    <div id="alterr"></div>                    
                 	<form name="alert-form" id="alert-form" class="footerform" onSubmit="return validation()">	
                     	<input type="text" name="altname" id="vstrname" placeholder="// Your Full Name Here" />
                         <input type="email" name="altmail" id="vstrmail" placeholder="// Your Email address Here"  />
@@ -515,19 +515,20 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             </div>
         	<div class="footbx">
             	<h3><i class="fa fa-envelope"></i> SEND A MESSAGE</h3>
+                <div id="msgerr"></div>
                 <div class="footerform usrmsgbx">                	
                 	<form name="feedback-form" id="feedback-form">	
                     	<input type="text" name="msgname" id="msgname" placeholder="// Your Full Name Here" />
                        
-                        <div class="footselect">
+                        <!--<div class="footselect">
                             <select name="msgusing" id="msgusing" class="" required>
                                 <option value=""> // Select.</option>
                                 <option value="email"> Email id »</option>
                                 <option value="facebook"> Facebook id »</option>
                                 <option value="twitter"> Twitter id »</option>
                             </select>
-                        </div>
-                        <input name="msgfrom" id="msgfrom" type="text" style="width:246px; margin-top:0;" placeholder="and write here" required>
+                        </div>-->
+                        <input name="msgfrom" id="msgfrom" type="text" style="margin-top:0;" placeholder="// Email address" >
                         <textarea name="msgbody" id="msgbody" rows="4" placeholder="// Send Feedback / message / suggestion / question anything you feel about this site..."></textarea>
                         <button name="msgsender" id="msgsender" class="btn-fff">
                         <i class="fa fa-plane"></i> Send Message
