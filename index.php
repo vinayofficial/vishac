@@ -504,7 +504,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                       Fill up these information below and join the <i>vish Alerts </i> on your email and we will send you an email on every new subject / video upload on our site / channel.
                     </p><ol></ol>
                     <?php // echo $error; ?>
-                	<form name="alert-form" id="alert-form" class="footerform">	
+                	<form name="alert-form" id="alert-form" class="footerform" onSubmit="return validation()">	
                     	<input type="text" name="altname" id="vstrname" placeholder="// Your Full Name Here" />
                         <input type="email" name="altmail" id="vstrmail" placeholder="// Your Email address Here"  />
                         <button type="submit" name="altsend" id="altsend" class="btn-fff" />

@@ -1,5 +1,39 @@
 // JavaScript Document
-$('#altsend').on('click', function(){
+
+function validation(){
+		
+	var fullname = $.trim($('#vstrname').val());
+	var alertmail = $.trim($('#vstrmail ').val());
+if(fullname == null || fullname == "" || alertmail == "" || alertmail == null){
+alert("Please fill all fields ");	
+	document.getElementById('vstrname').focus();
+	return false;
+	}
+	else {
+	    if(fullname != '' || alteremail != ''){		
+				
+			$.post('assets/ajaxian/ajaxer.php',{
+			name : fullname,
+			email : alertmail},
+			function(data){
+				$('.footerform p').html(data);
+				$('#vstrname').val('');
+				$('#vstrmail ').val('');
+			}
+		);
+	} else{
+		
+		$('.footerform p').html("<i class='fa fa-warning'></i> All fields are required :/");
+			return false;
+	}	
+	}
+	
+	}
+
+
+
+
+/*$('#altsend').on('click', function(){
 	var fullname = $.trim($('#vstrname').val());
 	var alertmail = $.trim($('#vstrmail ').val());
 	    if(fullname != '' || alteremail != ''){					
@@ -17,7 +51,7 @@ $('#altsend').on('click', function(){
 	}	
 	return false;
 });
-
+*/
 /*
 ////////////////////////User message
 */
