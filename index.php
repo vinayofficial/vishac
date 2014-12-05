@@ -2,6 +2,10 @@
 // database file is include in functions.php
  require_once 'inc_/functions.php';
 ?>
+<?php 
+//DATE TIME FUNCTIONS TIME AGO TESTING
+
+?>
 <!doctype html>
 <html>
 <head>
@@ -9,74 +13,70 @@
 <title>Learn major an minor computer science projects with vishAcademy 's Hindi video tutorials</title>
 <?php #css and js files >> 
 include_once 'inc_/va_files.php'; ?>
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <style>
 /*#####################
 Additional Styles (required)
 ######################*/
 
 .carousel-inner .item img {
-	width:100%;
-	height:100%;
+	width: 100%;
+	height: 100%;
 }
 .item .thumbnail {
-	margin-bottom:0;
+	margin-bottom: 0;
 }
 .carousel-control.left, .carousel-control.right {
-	background-image:none !important;
+	background-image: none !important;
 }
 .carousel-control {
-	background:	none;
-	color:#3a3a3a;
+	background: none;
+	color: #3a3a3a;
 	padding: 4px 0;
-	width:26px;
-	top:auto;	
-	left:auto;
-	bottom:0;
-	opacity:1;
-	text-shadow:none;
+	width: 26px;
+	top: auto;
+	left: auto;
+	bottom: 0;
+	opacity: 1;
+	text-shadow: none;
 }
 .carousel-control.right {
-	right:10px;
+	right: 10px;
 }
-
 .carousel-control.left {
 	right: 40px;
 }
-
 /*for footer dropdowns*/
-.footselect select{
-	height:40px;
-	background:#252525;
-	color:#717c80;
-	border:0;
-	border-bottom:1px dashed #3a3a3a;}
-.footselect select:focus{
-	background:#3a3a3a;}
-.footselect{
-	width:95px;
-	overflow:hidden;
-	display:inline-block;
-	float:left;}
+.footselect select {
+	height: 40px;
+	background: #252525;
+	color: #717c80;
+	border: 0;
+	border-bottom: 1px dashed #3a3a3a;
+}
+.footselect select:focus {
+	background: #3a3a3a;
+}
+.footselect {
+	width: 95px;
+	overflow: hidden;
+	display: inline-block;
+	float: left;
+}
 </style>
 </head>
-<body>	
-    <?php #header
+<body>
+<?php #header
 	include_once 'inc_/header.php';?>
-	<div id="wrapper">
-    	<section id="frontsection1">
-        	<div class="cmn-cntnr">
-            	<!--Welcome text box-->
-            	<div class="welcome-txt">
-	            	<h2>Free computer science education videos in Hindi Language.</h2>
-                    <!--<span class="wlcm-tagline"><b>Learn</b> / <b>Ask</b> / <b>Help</b> everything is totally free for always</span>	-->
-                    <a href="#begin" class="btn btn-stroke btn-lg megabtn">Start Learning</a>
-                </div>                
-                <!--Social login box-->
-                <?php /* <div class="frontsocialbox">
+<div id="wrapper">
+  <section id="frontsection1">
+    <div class="cmn-cntnr"> 
+      <!--Welcome text box-->
+      <div class="welcome-txt">
+        <h2>Free computer science education videos in Hindi Language.</h2>
+        <!--<span class="wlcm-tagline"><b>Learn</b> / <b>Ask</b> / <b>Help</b> everything is totally free for always</span>	--> 
+        <a href="#begin" class="btn btn-stroke btn-lg megabtn">Start Learning</a> </div>
+      <!--Social login box-->
+      <?php /* <div class="frontsocialbox">
                 	<p>Get free admission in <b>vish</b>Academy. Sign in with...</p>
                     <ul>
                     	<li class="fb">
@@ -96,10 +96,10 @@ Additional Styles (required)
                             <span>Email</span>
                         </li>
                     </ul>
-                </div> */ ?>                
-                <div class="clr"></div>
-                <!--How to use vishAcademy-->
-                <!--<div class="howtobx">
+                </div> */ ?>
+      <div class="clr"></div>
+      <!--How to use vishAcademy--> 
+      <!--<div class="howtobx">
                 	<div class="howto-heading">
                 		<div class="heading">How to use </div>
                     </div>
@@ -126,20 +126,21 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                             <div class="link"><a href="#" class="fff u">Start here »</a></div>
                         </li>                      
                     </ul>
-                </div>-->
-            </div>            
-        </section>     
-        <section id="frontsection2">        	
-        	<div class="cmn-cntnr">            
-            		<span class="centro"><h1 class="megatitle">// LATEST UPLOAD</h1></span>
-                <ul id="latestonva">
-                    <li>
-                        <h4>// Latest for Beginners</h4>
-                        <div class="latestsubx">
-                            <!--subject goes here-->
-                            <ul class="sub_tile">
-                            <!----------->  
-                         	    <?php 
+                </div>--> 
+    </div>
+  </section>
+  <section id="frontsection2">
+    <div class="cmn-cntnr"> <span class="centro">
+      <h1 class="megatitle">// LATEST UPLOAD</h1>
+      </span>
+      <ul id="latestonva">
+        <li>
+          <h4>// Latest for Beginners</h4>
+          <div class="latestsubx"> 
+            <!--subject goes here-->
+            <ul class="sub_tile">
+              <!----------->
+              <?php 
 									$myquery = data_selector("vish_subjects","level_id='1' AND subj_status='1'","subj_id DESC","LIMIT 2");		
 															
 										while($fetcher=mysqli_fetch_assoc($myquery)){	
@@ -158,38 +159,32 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 										$vid = data_selector("vish_videodata","subj_id='$subjid'");
 										$get_vid = mysqli_fetch_assoc($vid);
 										$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																		
-								?>                      	
-                            	<li>
-                                    <div class="tile_img">
-                                      <a href="<?php echo $vidpage_path; ?>">
-                                        <img src="<?php echo $fetcher['subj_logo_url']; ?>" alt="subject image" />
-                                      </a>
-                                    </div>                       
-                                    <div class="tile_subject">
-                                      <a href="<?php echo $vidpage_path; ?>"><?php echo $fetcher['subj_name']; ?></a>
-                                    </div>                         	
-                                    <div class="tile_cat">
-                                    	<?php
+								?>
+              <li>
+                <div class="tile_img"> <a href="<?php echo $vidpage_path; ?>"> <img src="<?php echo $fetcher['subj_logo_url']; ?>" alt="subject image" /> </a> </div>
+                <div class="tile_subject"> <a href="<?php echo $vidpage_path; ?>"><?php echo $fetcher['subj_name']; ?></a> </div>
+                <div class="tile_cat">
+                  <?php
 											$catid = $fetcher['cat_id'];
                                         	$subquery = data_selector("vish_cats","cat_id='$catid'");
 											$subfetch = mysqli_fetch_assoc($subquery) or die('can not fetch sub cat');
 											echo $subfetch['cat_name'];
-                                        ?>                                    	
-                                     </div>
-                                    <div class="tile_ago">// 5 Hours ago</div>
-                                </li>
-                               <?php } // while loop ends here ?>                    			
-                            </ul>                            
-                       		<div class="clr"></div>
-                       </div>
-                    </li>
-                    <li>
-                        <h4>// Latest for Stuffers</h4>
-                        <div class="latestsubx">
-                            <!--subject goes here-->
-                            <ul class="sub_tile">
-                            <!----------->  
-                         	    <?php 
+                                        ?>
+                </div>
+                <div class="tile_ago">// 5 Hours ago</div>
+              </li>
+              <?php } // while loop ends here ?>
+            </ul>
+            <div class="clr"></div>
+          </div>
+        </li>
+        <li>
+          <h4>// Latest for Stuffers</h4>
+          <div class="latestsubx"> 
+            <!--subject goes here-->
+            <ul class="sub_tile">
+              <!----------->
+              <?php 
 									$myquery = data_selector("vish_subjects","level_id='2'","subj_id DESC","LIMIT 2");
 									while($fetcher=mysqli_fetch_assoc($myquery)){	
 									//fetching level
@@ -206,38 +201,32 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 										$vid = data_selector("vish_videodata","subj_id='$subjid'");
 										$get_vid = mysqli_fetch_assoc($vid);
 										$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																			
-								?>                      	
-                            	<li>
-                                    <div class="tile_img">
-                                        <a href="<?php echo $vidpage_path; ?>">
-                                        <img src="<?php echo $fetcher['subj_logo_url']; ?>" alt="subject image" />
-                                        </a>
-                                    </div>                       
-                                     <div class="tile_subject">
-                                     	<a href="<?php echo $vidpage_path; ?>"><?php echo $fetcher['subj_name']; ?></a>
-                                     </div>                         	
-                                    <div class="tile_cat">
-                                    	<?php
+								?>
+              <li>
+                <div class="tile_img"> <a href="<?php echo $vidpage_path; ?>"> <img src="<?php echo $fetcher['subj_logo_url']; ?>" alt="subject image" /> </a> </div>
+                <div class="tile_subject"> <a href="<?php echo $vidpage_path; ?>"><?php echo $fetcher['subj_name']; ?></a> </div>
+                <div class="tile_cat">
+                  <?php
 											$catid = $fetcher['cat_id'];
                                         	$subquery = data_selector("vish_cats","cat_id='$catid'");
 											$subfetch = mysqli_fetch_assoc($subquery) or die('can not fetch sub cat');
 											echo $subfetch['cat_name'];
-                                        ?>                                    	
-                                     </div>
-                                    <div class="tile_ago">// 5 Hours ago</div>                                                
-                                </li>
-                               <?php } // while loop ends here ?>                    			
-                            </ul>                            
-                       		<div class="clr"></div>                       		
-                       </div>
-                    </li>
-                    <li>
-                        <h4>// Latest for Trickers</h4>
-                        <div class="latestsubx">
-                            <!--subject goes here-->
-                            <ul class="sub_tile">
-                            <!----------->  
-                         	    <?php 
+                                        ?>
+                </div>
+                <div class="tile_ago">// 5 Hours ago</div>
+              </li>
+              <?php } // while loop ends here ?>
+            </ul>
+            <div class="clr"></div>
+          </div>
+        </li>
+        <li>
+          <h4>// Latest for Trickers</h4>
+          <div class="latestsubx"> 
+            <!--subject goes here-->
+            <ul class="sub_tile">
+              <!----------->
+              <?php 
 									$myquery = data_selector("vish_subjects","level_id='3'","subj_id DESC","LIMIT 2");		
 															
 										while($fetcher=mysqli_fetch_assoc($myquery)){	
@@ -255,33 +244,31 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 										$vid = data_selector("vish_videodata","subj_id='$subjid'");
 										$get_vid = mysqli_fetch_assoc($vid);
 										$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																			
-								?>                      	
-                            	<li>
-                                    <div class="tile_img">
-                                        <a href="<?php echo $vidpage_path; ?>"><img src="<?php echo $fetcher['subj_logo_url']; ?>" alt="subject image" /></a>
-                                    </div>                       
-                                     <div class="tile_subject"> 
-                                     	<a href="<?php echo $vidpage_path; ?>"><?php echo $fetcher['subj_name']; ?></a>
-                                     </div>                         	
-                                    <div class="tile_cat">
-                                    	<?php
+								?>
+              <li>
+                <div class="tile_img"> <a href="<?php echo $vidpage_path; ?>"><img src="<?php echo $fetcher['subj_logo_url']; ?>" alt="subject image" /></a> </div>
+                <div class="tile_subject"> <a href="<?php echo $vidpage_path; ?>"><?php echo $fetcher['subj_name']; ?></a> </div>
+                <div class="tile_cat">
+                  <?php
 											$catid = $fetcher['cat_id'];
                                         	$subquery = data_selector("vish_cats","cat_id='$catid'");
 											$subfetch = mysqli_fetch_assoc($subquery) or die('can not fetch sub cat');
 											echo $subfetch['cat_name'];
-                                        ?>                                    	
-                                     </div>
-                                    <div class="tile_ago">// 5 Hours ago</div>                                                
-                                </li>
-                               <?php } // while loop ends here ?>                    			
-                            </ul>                            
-                       		<div class="clr"></div>                       		
-                       </div>
-                    </li>
-                </ul>
-               <a name="begin"> <hr class="digonalhr"/> </a>
-	             <!--Discussion part-->
-                <?php /* <div class="section2part2">
+                                        ?>
+                </div>
+                <div class="tile_ago">// 5 Hours ago</div>
+              </li>
+              <?php } // while loop ends here ?>
+            </ul>
+            <div class="clr"></div>
+          </div>
+        </li>
+      </ul>
+      <a name="begin">
+      <hr class="digonalhr"/>
+      </a> 
+      <!--Discussion part-->
+      <?php /* <div class="section2part2">
                 	<h1 class="title">// Latest for Discussion</h1>
                     <ul class="latestdsqs">
                     	<li>
@@ -307,13 +294,14 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                 		</div>
                     </div> 
                 </div>*/ ?>
-            </div>
-        </section>
-        <section id="frontsection2">
-        	<div class="cmn-cntnr">            
-            		<span class="centro"><h1 class="megatitle">// BEGINNERS</h1></span>
-                    <ul class="subjectrow">
-                    	<?php
+    </div>
+  </section>
+  <section id="frontsection2">
+    <div class="cmn-cntnr"> <span class="centro">
+      <h1 class="megatitle">// BEGINNERS</h1>
+      </span>
+      <ul class="subjectrow">
+        <?php
                         	//Beginner subject fetch							
 									$myquery = data_selector("vish_subjects","level_id='1'","subj_id","LIMIT 6");		
 															
@@ -332,37 +320,28 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 										$vid = data_selector("vish_videodata","subj_id='$subjid'");
 										$get_vid = mysqli_fetch_assoc($vid);
 										$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																			
-								?> 
-						
-                    	<li>
-                        	<div class="subjimg">
-                        		<a href="<?php echo $vidpage_path; ?>">
-                                	<img src="<?php echo $fetcher['subj_logo_url']; ?>" />
-                                 </a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="<?php echo $vidpage_path; ?>">
-                            		<?php echo $fetcher['subj_name']; ?>
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	<?php
+								?>
+        <li>
+          <div class="subjimg"> <a href="<?php echo $vidpage_path; ?>"> <img src="<?php echo $fetcher['subj_logo_url']; ?>" /> </a> </div>
+          <div class="subjname"> <a href="<?php echo $vidpage_path; ?>"> <?php echo $fetcher['subj_name']; ?> </a> </div>
+          <div class="tile_cat">
+            <?php
 									$catid = $fetcher['cat_id'];
 									$subquery = data_selector("vish_cats","cat_id='$catid'");
 									$subfetch = mysqli_fetch_assoc($subquery) or die('can not fetch sub cat');
 									echo $subfetch['cat_name'];
-								?> 
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
-                        <?php } // while loop ends here ?>                        
-                    </ul>
-	                <hr class="digonalhr" /> 
-                    <span class="centro"> <h1 class="megatitle">// STUFFERS</h1></span>
-                    <ul class="subjectrow">
-                    	<?php
+								?>
+          </div>
+          <div class="tile_cat"> // 5 days ago </div>
+        </li>
+        <?php } // while loop ends here ?>
+      </ul>
+      <hr class="digonalhr" />
+      <span class="centro">
+      <h1 class="megatitle">// STUFFERS</h1>
+      </span>
+      <ul class="subjectrow">
+        <?php
                         	//Beginner subject fetch							
 									$myquery = data_selector("vish_subjects","level_id='2'","subj_id","LIMIT 6");		
 															
@@ -381,37 +360,28 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 										$vid = data_selector("vish_videodata","subj_id='$subjid'");
 										$get_vid = mysqli_fetch_assoc($vid);
 										$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																			
-								?> 
-						
-                    	<li>
-                        	<div class="subjimg">
-                        		<a href="<?php echo $vidpage_path; ?>">
-                                	<img src="<?php echo $fetcher['subj_logo_url']; ?>" />
-                                 </a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="<?php echo $vidpage_path; ?>">
-                            		<?php echo $fetcher['subj_name']; ?>
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	<?php
+								?>
+        <li>
+          <div class="subjimg"> <a href="<?php echo $vidpage_path; ?>"> <img src="<?php echo $fetcher['subj_logo_url']; ?>" /> </a> </div>
+          <div class="subjname"> <a href="<?php echo $vidpage_path; ?>"> <?php echo $fetcher['subj_name']; ?> </a> </div>
+          <div class="tile_cat">
+            <?php
 									$catid = $fetcher['cat_id'];
 									$subquery = data_selector("vish_cats","cat_id='$catid'");
 									$subfetch = mysqli_fetch_assoc($subquery) or die('can not fetch sub cat');
 									echo $subfetch['cat_name'];
-								?> 
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
-                        <?php } // while loop ends here ?>                        
-                    </ul>
-	                <hr class="digonalhr" /> 
-                     <span class="centro"><h1 class="megatitle">// TRICKERS</h1></span>
-                    <ul class="subjectrow">
-                    	<?php
+								?>
+          </div>
+          <div class="tile_cat"> // 5 days ago </div>
+        </li>
+        <?php } // while loop ends here ?>
+      </ul>
+      <hr class="digonalhr" />
+      <span class="centro">
+      <h1 class="megatitle">// TRICKERS</h1>
+      </span>
+      <ul class="subjectrow">
+        <?php
                         	//Beginner subject fetch							
 									$myquery = data_selector("vish_subjects","level_id='3'","subj_id","LIMIT 6");		
 															
@@ -430,50 +400,40 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 										$vid = data_selector("vish_videodata","subj_id='$subjid'");
 										$get_vid = mysqli_fetch_assoc($vid);
 										$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																			
-								?> 
-						
-                    	<li>
-                        	<div class="subjimg">
-                        		<a href="<?php echo $vidpage_path; ?>">
-                                	<img src="<?php echo $fetcher['subj_logo_url']; ?>" />
-                                 </a>
-                            </div>
-                            <div class="subjname">
-                            	<a href="<?php echo $vidpage_path; ?>">
-                            		<?php echo $fetcher['subj_name']; ?>
-                                </a>
-                            </div>
-                            <div class="tile_cat">
-                            	<?php
+								?>
+        <li>
+          <div class="subjimg"> <a href="<?php echo $vidpage_path; ?>"> <img src="<?php echo $fetcher['subj_logo_url']; ?>" /> </a> </div>
+          <div class="subjname"> <a href="<?php echo $vidpage_path; ?>"> <?php echo $fetcher['subj_name']; ?> </a> </div>
+          <div class="tile_cat">
+            <?php
 									$catid = $fetcher['cat_id'];
 									$subquery = data_selector("vish_cats","cat_id='$catid'");
 									$subfetch = mysqli_fetch_assoc($subquery) or die('can not fetch sub cat');
 									echo $subfetch['cat_name'];
-								?> 
-                            </div>
-                            <div class="tile_cat">
-                            	// 5 days ago
-                            </div>
-                        </li>
-                        <?php } // while loop ends here ?>                        
-                    </ul>
-            </div>
-        </section>
-    </div>	
-    
-     <!--footer-->
-     <section id="footer">
-     	<div class="cmn-cntnr">
-     		<div class="footbx">
-            	<h3><a name="test"><i class="fa fa-user"></i></a> Users Review</h3>
-                <!-- Carousel
+								?>
+          </div>
+          <div class="tile_cat"> // 5 days ago </div>
+        </li>
+        <?php } // while loop ends here ?>
+      </ul>
+    </div>
+  </section>
+</div>
+yyyy-mm-dd hh:mm:ss
+<?php $date = "1992-16-10 05:05:05"; echo time_ago($date) ?>
+<!--footer-->
+<section id="footer">
+  <div class="cmn-cntnr">
+    <div class="footbx">
+      <h3><a name="test"><i class="fa fa-user"></i></a> Users Review</h3>
+       <!-- Carousel
             ================================================== -->
             <div id="myCarousel" class="carousel slide">
                  <!-- Indicators -->         
                 <div class="carousel-inner">           
                     <div class="item active">
                         <blockquote>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
                           <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
                         </blockquote>
                     </div>
@@ -495,32 +455,30 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                   <a class="carousel-control right" href="#myCarousel" data-slide="next"><span class="fa fa-angle-double-right"></span></a>
               </div>               
                                                             
-            </div><!-- End Carousel -->
-            </div>
-        	<div class="footbx">
-            	<h3><i class="fa fa-bell"></i> Join Alerts</h3>
-                <div class="footerform">
-                	<p>
-                      Fill up these information below and join the <i>vish Alerts </i> on your email and we will send you an email on every new subject / video upload on our site / channel.                      
-                    </p>
-                    <div id="alterr"></div>                    
-                	<form name="alert-form" id="alert-form" class="footerform" onSubmit="return validation()">	
-                    	<input type="text" name="altname" id="vstrname" placeholder="// Your Full Name Here" />
-                        <input type="email" name="altmail" id="vstrmail" placeholder="// Your Email address Here"  />
-                        <button type="submit" name="altsend" id="altsend" class="btn-fff" />
-                        	 <i class="fa fa-bell"></i> join Alerts 
-                        </button>                        
-                    </form>
-                </div>
-            </div>
-        	<div class="footbx">
-            	<h3><i class="fa fa-envelope"></i> SEND A MESSAGE</h3>
-                <div id="msgerr"></div>
-                <div class="footerform usrmsgbx">                	
-                	<form name="feedback-form" id="feedback-form">	
-                    	<input type="text" name="msgname" id="msgname" placeholder="// Your Full Name Here" />
-                       
-                        <!--<div class="footselect">
+            </div><!-- End Carousel --> 
+    </div>
+    <div class="footbx">
+      <h3><i class="fa fa-bell"></i> Join Alerts</h3>
+      <div class="footerform">
+        <p> Fill up these information below and join the <i>vish Alerts </i> on your email and we will send you an email on every new subject / video upload on our site / channel. </p>
+        <div id="alterr"></div>
+        <form name="alert-form" id="alert-form" class="footerform" onSubmit="return validation()">
+          <input type="text" name="altname" id="vstrname" placeholder="// Your Full Name Here" />
+          <input type="email" name="altmail" id="vstrmail" placeholder="// Your Email address Here"  />
+          <button type="submit" name="altsend" id="altsend" class="btn-fff" />
+          <i class="fa fa-bell"></i> join Alerts
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="footbx">
+      <h3><i class="fa fa-envelope"></i> SEND A MESSAGE</h3>
+      <div id="msgerr"></div>
+      <div class="footerform usrmsgbx">
+        <form name="feedback-form" id="feedback-form">
+          <input type="text" name="msgname" id="msgname" placeholder="// Your Full Name Here" />
+          
+          <!--<div class="footselect">
                             <select name="msgusing" id="msgusing" class="" required>
                                 <option value=""> // Select.</option>
                                 <option value="email"> Email id »</option>
@@ -528,18 +486,16 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                                 <option value="twitter"> Twitter id »</option>
                             </select>
                         </div>-->
-                        <input name="msgfrom" id="msgfrom" type="text" style="margin-top:0;" placeholder="// Email address" >
-                        <textarea name="msgbody" id="msgbody" rows="4" placeholder="// Send Feedback / message / suggestion / question anything you feel about this site..."></textarea>
-                        <button name="msgsender" id="msgsender" class="btn-fff">
-                        <i class="fa fa-plane"></i> Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-     </section>
-    <?php include_once 'inc_/footer.php';?>
-    <!-- Modal -->
+          <input name="msgfrom" id="msgfrom" type="text" style="margin-top:0;" placeholder="// Email address" >
+          <textarea name="msgbody" id="msgbody" rows="4" placeholder="// Send Feedback / message / suggestion / question anything you feel about this site..."></textarea>
+          <button name="msgsender" id="msgsender" class="btn-fff"> <i class="fa fa-plane"></i> Send Message </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<?php include_once 'inc_/footer.php';?>
+<!-- Modal -->
 <div class="modal fade Fur" id="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -547,9 +503,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
+      <div class="modal-body"> ... </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
@@ -557,8 +511,12 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     </div>
   </div>
 </div>
-<script src="assets/js/custom.js"></script>
+<script src="assets/js/custom.js"></script> 
+
 <script>
+////////////////////////
+//smooth scrolling js//
+//////////////////////
 $(document).ready(function(e) {
   $('a[href*=#]:not([href=#])').click(function() {
 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 
@@ -575,6 +533,16 @@ $(document).ready(function(e) {
 		}
 	});
  });
+</script> 
+<script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script>
+////////////////////////
+//testimonial scroll //
+//////////////////////
+	$('#myCarousel').carousel({
+		interval:   4000
+	});
 </script>
 </body>
 </html>

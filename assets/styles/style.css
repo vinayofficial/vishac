@@ -1265,3 +1265,6 @@ ul.footlink>li>a{
     margin-top: 90px;
     padding: 13px 31px;
     text-transform: uppercase;}
+.btn.btn-stroke:focus{
+	color:#fff;
+	outline:0;}

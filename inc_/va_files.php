@@ -15,7 +15,12 @@
 <script src="<?php echo SITE_PATH ?>assets/js/jquery.colorbox.js"></script>
 <script src="<?php echo SITE_PATH ?>assets/js/jMenu.js"></script>
 <?php #Code highlight ?>
-<link rel="stylesheet" href="<?php echo SITE_PATH ?>assets/plugs/highlight/styles/docco.css" />
+<link href="<?php echo SITE_PATH ?>assets/plugs/highlight/styles/docco.css" rel="stylesheet" />
 <script src="<?php echo SITE_PATH ?>assets/plugs/highlight/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,700italic,400italic' rel='stylesheet' type='text/css'>
+<?php #Bootstrap files?>
+<link href="<?php echo SITE_PATH ?>assets/styles/bootstrap.min.css" rel="stylesheet">
+<!-- Latest compiled and minified JavaScript -->
+<script src="<?php echo SITE_PATH ?>assets/js/bootstrap.min.js"></script>
+

@@ -64,37 +64,37 @@ $nextvidurl = '#';
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <style>
-body { padding-top: 50px; }
-
+body {
+	padding-top: 50px;
+}
 /*#####################
 Additional Styles (required)
 ######################*/
 
 .carousel-inner .item img {
-	width:100%;
-	height:100%;
+	width: 100%;
+	height: 100%;
 }
 .item .thumbnail {
-	margin-bottom:0;
+	margin-bottom: 0;
 }
 .carousel-control.left, .carousel-control.right {
-	background-image:none !important;
+	background-image: none !important;
 }
 .carousel-control {
-	background:	#39b3d7;
-	color:#fff;
+	background: #39b3d7;
+	color: #fff;
 	padding: 4px 0;
-	width:26px;
-	top:auto;	
-	left:auto;
-	bottom:8px;
-	opacity:1;
-	text-shadow:none;
+	width: 26px;
+	top: auto;
+	left: auto;
+	bottom: 8px;
+	opacity: 1;
+	text-shadow: none;
 }
 .carousel-control.right {
-	right:10px;
+	right: 10px;
 }
-
 .carousel-control.left {
 	right: 40px;
 }
@@ -114,120 +114,114 @@ fjs.parentNode.insertBefore(js, fjs);
 <?php #header
 include_once '../../inc_/header.php';?>
 <!---playlist----->
-<div id="sidr">
-<span style="float:right;"><a class="sidrman" href="#" style="color:#CE5037 ;"><i class="fa fa-times-circle fa-2x"></i></a></span>
-<div id="accord_box">
-<div class="libbox">
-<!--Video history box-->
-<div class="accordian">
-<ul class="gallery clearfix">
-<?php
+<div id="sidr"> <span style="float:right;"><a class="sidrman" href="#" style="color:#CE5037 ;"><i class="fa fa-times-circle fa-2x"></i></a></span>
+  <div id="accord_box">
+    <div class="libbox"> 
+      <!--Video history box-->
+      <div class="accordian">
+        <ul class="gallery clearfix">
+          <?php
 $seltpc = "SELECT * FROM vish_topics WHERE subj_id='$subjid' AND topic_status='1' ORDER BY topic_id";
 $fire_seltpc = mysqli_query($dbcon,$seltpc);
 while($get_tpc = mysqli_fetch_assoc($fire_seltpc)){
 $topic_id = $get_tpc['topic_id'];
 ?>
-<li><?php echo $get_tpc['topic_name']; ?></li>
-<li>
-<?php $sel_thisvid = "SELECT * FROM vish_videodata WHERE topic_id='$topic_id' AND vid_status='1'";
+          <li><?php echo $get_tpc['topic_name']; ?></li>
+          <li>
+            <?php $sel_thisvid = "SELECT * FROM vish_videodata WHERE topic_id='$topic_id' AND vid_status='1'";
 $fire_sel_thisvid = mysqli_query($dbcon,$sel_thisvid);
 while($get_thisvid = mysqli_fetch_assoc($fire_sel_thisvid)){
 $url_thisvid = SITE_PATH.$levelname."/".$subjname."/".$get_thisvid['vid_pageurl'];
 ?>
-<p class="vidtitle_en iframe" >
-<a href="<?php echo $url_thisvid; ?>" data-tooltip="<?php echo $get_thisvid['vid_Hname'] ?>"> » <?php echo $get_thisvid['vid_Ename']; ?> </a>
-</p>
-<?php } ?>
-</li>
-<?php } ?>
-</ul>
-<?php // <<<< accordian wrapper ends here-?>
-</div>
-</div> <!--Libbox ends here-->
-</div>
+            <p class="vidtitle_en iframe" > <a href="<?php echo $url_thisvid; ?>" data-tooltip="<?php echo $get_thisvid['vid_Hname'] ?>"> » <?php echo $get_thisvid['vid_Ename']; ?> </a> </p>
+            <?php } ?>
+          </li>
+          <?php } ?>
+        </ul>
+        <?php // <<<< accordian wrapper ends here-?>
+      </div>
+    </div>
+    <!--Libbox ends here--> 
+  </div>
 </div>
 <!----// playlist ends here----->
 <div id="wrapper">
-
-<div class="blacky">
-<div class="cmn-cntnr">
-<div class="vidbx">
-<div class="video">
-<?php if($get_vid['vid_YTurl'] == null || $get_vid['vid_YTurl'] == '' || $get_vid['vid_YTurl'] == 'something' || $get_vid['vid_YTurl'] == 'No video') { ?>
-		<img src="<?php echo SITE_PATH ?>assets/images/video404.jpg">	
-<?php } else {?>
-
-<iframe src="http://www.youtube.com/embed/<?php echo $get_vid['vid_YTurl'] ?>?autoplay=0" frameborder="0" allowfullscreen ></iframe>
-<?php } ?>
-</div>
-</div>
-<div class="video_ad">
-<img src="<?php echo SITE_PATH ?>assets/images/tile_12.png">
-<!--<br /><span class="adtag">Advertisement</span>-->
-</div>
-</div>
-</div>
-<div class="video_navs">
-<div class="cmn-cntnr">
-<ul>
-<li><a id="playlist-btn" href="#" style="color:#CE5037;"><i class="fa fa-list fa-lg"></i><span class="vidnav_lbl">Playlist</span></a></li><!--
---><li><a <?php
+  <div class="blacky">
+    <div class="cmn-cntnr">
+      <div class="vidbx">
+        <div class="video">
+          <?php if($get_vid['vid_YTurl'] == null || $get_vid['vid_YTurl'] == '' || $get_vid['vid_YTurl'] == 'something' || $get_vid['vid_YTurl'] == 'No video') { ?>
+          <img src="<?php echo SITE_PATH ?>assets/images/video404.jpg">
+          <?php } else {?>
+          <iframe src="http://www.youtube.com/embed/<?php echo $get_vid['vid_YTurl'] ?>?autoplay=0" frameborder="0" allowfullscreen ></iframe>
+          <?php } ?>
+        </div>
+      </div>
+      <div class="video_ad"> <img src="<?php echo SITE_PATH ?>assets/images/tile_12.png"> 
+        <!--<br /><span class="adtag">Advertisement</span>--> 
+      </div>
+    </div>
+  </div>
+  <div class="video_navs">
+    <div class="cmn-cntnr">
+      <ul>
+        <li><a id="playlist-btn" href="#" style="color:#CE5037;"><i class="fa fa-list fa-lg"></i><span class="vidnav_lbl">Playlist</span></a></li>
+        <!--
+-->
+        <li><a <?php
 if($previdurl !== '#'){?>
 href="<?php echo $previdurl; } ?>"
-<?php if($previdurl =='#'){?> class="disableicon" <?php ;}?>><i class="fa fa-backward fa-lg"></i><span class="vidnav_lbl">Previous</span></a></li><!--
---><li><a href="#"><i class="fa fa-download fa-lg"></i><span class="vidnav_lbl">Source files</span></a></li><!--
+<?php if($previdurl =='#'){?> class="disableicon" <?php ;}?>><i class="fa fa-backward fa-lg"></i><span class="vidnav_lbl">Previous</span></a></li>
+        <!--
+-->
+        <li><a href="#"><i class="fa fa-download fa-lg"></i><span class="vidnav_lbl">Source files</span></a></li>
+        <!--
 --><!--<li><a href="#"><i class="fa fa-comments fa-lg"></i><span class="vidnav_lbl">Discuss it</span></a></li><!--
---><li>
-<a id="facebookbtn-link" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http:/<?php echo $_SERVER['PHP_SELF']; ?>">
-<i class="fa fa-facebook-square fa-lg"></i><span class="vidnav_lbl">Share on facebook</span></a></li><!--
---><li><a href="http://www.twitter.com/share?text=Just I found a very helpful video tutorial on #vishAcademy Watch it..."><i class="fa fa-twitter-square fa-lg"></i><span class="vidnav_lbl">Share on twitter</span></a></li><!--
---><li><a target="_blank" href="https://plus.google.com/share?url=http:/<?php echo $_SERVER['PHP_SELF']; ?>"><i class="fa fa-google-plus-square fa-lg"></i><span class="vidnav_lbl">Share on G.plus</span></a></li><!--
---><li><a <?php
+-->
+        <li> <a id="facebookbtn-link" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http:/<?php echo $_SERVER['PHP_SELF']; ?>"> <i class="fa fa-facebook-square fa-lg"></i><span class="vidnav_lbl">Share on facebook</span></a></li>
+        <!--
+-->
+        <li><a href="http://www.twitter.com/share?text=Just I found a very helpful video tutorial on #vishAcademy Watch it..."><i class="fa fa-twitter-square fa-lg"></i><span class="vidnav_lbl">Share on twitter</span></a></li>
+        <!--
+-->
+        <li><a target="_blank" href="https://plus.google.com/share?url=http:/<?php echo $_SERVER['PHP_SELF']; ?>"><i class="fa fa-google-plus-square fa-lg"></i><span class="vidnav_lbl">Share on G.plus</span></a></li>
+        <!--
+-->
+        <li><a <?php
 if($nextvidurl !='#'){?>
 href="<?php echo $nextvidurl; } ?>"
 <?php if($nextvidurl =='#'){?> class="disableicon" <?php ;}?>><i class="fa fa-forward fa-lg"></i><span class="vidnav_lbl">Next</span></a></li>
-</ul>
-</div>
-</div>
-<div class="cmn-cntnr">
-<div class="left-content">
-<h1 class="water">// <?php echo $subjtitle ?></h1>
-<h2 class="title">// <?php echo $get_vid['vid_Ename']; ?></h2>
-<div id="text-content">
-<?php echo $get_vid['vid_desc1']; ?>
-</div>
-<div class="ad_bnr728">
-<img src="<?php echo SITE_PATH ?>assets/images/728x90.jpg" />
-</div>
-<div class="fb-comments-bx">
-<div class="fb-comments" data-href="http://www.vishacademy.com" data-width="100%" data-num-posts="10"></div>
-</div>
-</div>
-<!---right content----->
-<div class="rightcontent">
-<h4>Related tutorials...</h4>
-<div class="box3x3">
-<?php 
+      </ul>
+    </div>
+  </div>
+  <div class="cmn-cntnr">
+    <div class="left-content">
+      <h1 class="water">// <?php echo $subjtitle ?></h1>
+      <h2 class="title">// <?php echo $get_vid['vid_Ename']; ?></h2>
+      <div id="text-content"> <?php echo $get_vid['vid_desc1']; ?> </div>
+      <div class="ad_bnr728"> <img src="<?php echo SITE_PATH ?>assets/images/728x90.jpg" /> </div>
+      <div class="fb-comments-bx">
+        <div class="fb-comments" data-href="http://www.vishacademy.com" data-width="100%" data-num-posts="10"></div>
+      </div>
+    </div>
+    <!---right content----->
+    <div class="rightcontent">
+      <h4>Related tutorials...</h4>
+      <div class="box3x3">
+        <?php 
 	// Related tutorials fetching operation
 	$reltut = data_selector("vish_subjects","subj_id !='$subjid' AND level_id='$levelid'","subj_id DESC","LIMIT 4");
 	while($get_reltut = mysqli_fetch_assoc($reltut)){ ?>
-    	<div class="box50">
-        	<a href="<?php echo SITE_PATH.$get_reltut['subj_redirect_to']; ?>">
-        		<img src="<?php echo $get_reltut['subj_logo_url']; ?>" />
-            </a>
-       </div>
-	<?php } ?> 
-           
-<div class="allink"><a href="tile.php" class="lnk-normal">Browse all tutorials...</a></div>
-</div>
-<div class="tile_ad300">
-<img src="<?php echo SITE_PATH ?>assets/images/tile_12.png" />
-</div>
-<div class="tile_ad300 fblikebx">
-<div class="fb-like-box" data-href="https://www.facebook.com/vishAcademy" data-width="300" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true"></div>
-</div>
-</div>
-</div>
+        <div class="box50"> <a href="<?php echo SITE_PATH.$get_reltut['subj_redirect_to']; ?>"> <img src="<?php echo $get_reltut['subj_logo_url']; ?>" /> </a> </div>
+        <?php } ?>
+        <div class="allink"><a href="tile.php" class="lnk-normal">Browse all tutorials...</a></div>
+      </div>
+      <div class="tile_ad300"> <img src="<?php echo SITE_PATH ?>assets/images/tile_12.png" /> </div>
+      <div class="tile_ad300 fblikebx">
+        <div class="fb-like-box" data-href="https://www.facebook.com/vishAcademy" data-width="300" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true"></div>
+      </div>
+    </div>
+  </div>
 </div>
 <!--footer-->
 <?php include_once '../../inc_/footer.php';?>
