@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="<?php echo SITE_PATH ?>assets/plugs/awesome/css/font-awesome.css" /> 
 <script src="<?php echo SITE_PATH ?>assets/js/jquery-1.11.0.min.js"></script>
 <script src="<?php echo SITE_PATH ?>assets/js/jquery-migrate-1.2.1.min.js"></script>
-<script src="https://apis.google.com/js/platform.js"></script>
+<script src="<?php echo SITE_PATH ?>assets/js/platform.js"></script>
 <!--sidr-->
 <link rel="stylesheet" href="<?php echo SITE_PATH ?>assets/plugs/sidr/stylesheets/jquery.sidr.light.css" />
 <script src="<?php echo SITE_PATH ?>assets/plugs/sidr/jquery.sidr.min.js"></script>

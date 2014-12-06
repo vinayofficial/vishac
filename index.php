@@ -2,9 +2,58 @@
 // database file is include in functions.php
  require_once 'inc_/functions.php';
 ?>
-<?php 
-//DATE TIME FUNCTIONS TIME AGO TESTING
+<?php
+	////////////phpdevtips
+	function time_ago( $date )
+{
+    if( empty( $date ) )
+    {
+        return "No date provided";
+    }
 
+    $periods = array("second", "minute", "hour", "day", "week", "month", "year", "decade");
+
+    $lengths = array("60","60","24","7","4.35","12","10");
+
+    $now = time();
+
+    $unix_date = strtotime( $date );
+
+    // check validity of date
+
+    if( empty( $unix_date ) )
+    {
+        return "Bad date";
+    }
+
+    // is it future date or past date
+
+    if( $now > $unix_date )
+    {
+        $difference = $now - $unix_date;
+        $tense = "ago";
+    }
+    else
+    {
+        $difference = $unix_date - $now;
+        $tense = "from now";
+    }
+
+    for( $j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++ )
+    {
+        $difference /= $lengths[$j];
+    }
+
+    $difference = round( $difference );
+
+    if( $difference != 1 )
+    {
+        $periods[$j].= "s";
+    }
+
+    return "$difference $periods[$j] {$tense}";
+
+}
 ?>
 <!doctype html>
 <html>
@@ -129,7 +178,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                 </div>--> 
     </div>
   </section>
-  <section id="frontsection2">
+   <section id="frontsection2">
     <div class="cmn-cntnr"> <span class="centro">
       <h1 class="megatitle">// LATEST UPLOAD</h1>
       </span>
@@ -171,7 +220,16 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 											echo $subfetch['cat_name'];
                                         ?>
                 </div>
-                <div class="tile_ago">// 5 Hours ago</div>
+                <div class="tile_ago">
+                <!-------////////////////////////////////////////////
+                ///////////Working on time ago functionality////////
+                /////////////////////////////////////////---------->
+                 <?php				 	
+					$ts= $fetcher['subjDate'];
+					echo time_ago($ts);
+					?>
+                <!--Time ago functionality ends here-->
+                </div>
               </li>
               <?php } // while loop ends here ?>
             </ul>
@@ -213,7 +271,12 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 											echo $subfetch['cat_name'];
                                         ?>
                 </div>
-                <div class="tile_ago">// 5 Hours ago</div>
+                <div class="tile_ago">
+                	 <?php				 	
+					$ts= $fetcher['subj_madeon'];
+					echo time_ago($ts);
+					?>
+                </div>
               </li>
               <?php } // while loop ends here ?>
             </ul>
@@ -256,7 +319,12 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 											echo $subfetch['cat_name'];
                                         ?>
                 </div>
-                <div class="tile_ago">// 5 Hours ago</div>
+                <div class="tile_ago">
+                	<?php				 	
+					$ts= $fetcher['subj_madeon'];
+					echo time_ago($ts);
+					?>
+                </div>
               </li>
               <?php } // while loop ends here ?>
             </ul>
@@ -332,7 +400,12 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 									echo $subfetch['cat_name'];
 								?>
           </div>
-          <div class="tile_cat"> // 5 days ago </div>
+          <div class="tile_cat"> 
+          		<?php				 	
+					$ts= $fetcher['subj_madeon'];
+					echo time_ago($ts);
+					?>
+           </div>
         </li>
         <?php } // while loop ends here ?>
       </ul>
@@ -372,7 +445,12 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 									echo $subfetch['cat_name'];
 								?>
           </div>
-          <div class="tile_cat"> // 5 days ago </div>
+          <div class="tile_cat"> 
+          			<?php				 	
+					$ts= $fetcher['subj_madeon'];
+					echo time_ago($ts);
+					?>
+           </div>
         </li>
         <?php } // while loop ends here ?>
       </ul>
@@ -412,15 +490,19 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 									echo $subfetch['cat_name'];
 								?>
           </div>
-          <div class="tile_cat"> // 5 days ago </div>
+          <div class="tile_cat"> 
+          		<?php				 	
+					$ts= $fetcher['subj_madeon'];
+					echo time_ago($ts);
+					?>
+           </div>
         </li>
         <?php } // while loop ends here ?>
       </ul>
     </div>
   </section>
 </div>
-yyyy-mm-dd hh:mm:ss
-<?php $date = "1992-16-10 05:05:05"; echo time_ago($date) ?>
+
 <!--footer-->
 <section id="footer">
   <div class="cmn-cntnr">

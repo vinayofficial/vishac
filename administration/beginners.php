@@ -36,7 +36,9 @@
 			move_uploaded_file($tmp_name,$location) or die("Error in location syntax");		
 		}
 			$location = "http://".SITE_PATH."assets/images/$name";
-		$query = "INSERT INTO vish_subjects (level_id,cat_id,subj_name,subj_redirect_to,subj_logo_url,subj_title,subj_status,subj_madeon) 				VALUES('$fklevelid','$fkcatid','$bcrs_name','$bcrs_url','$location','$bcrs_title','$bcrs_status',now())";
+			date_default_timezone_set("Asia/Kolkata"); 
+			echo $cur_date = date("Y-m-d H:i:s");
+		$query = "INSERT INTO vish_subjects (level_id,cat_id,subj_name,subj_redirect_to,subj_logo_url,subj_title,subj_status,subj_madeon) 				VALUES('$fklevelid','$fkcatid','$bcrs_name','$bcrs_url','$location','$bcrs_title','$bcrs_status','$cur_date')";
 		$fire = mysqli_query($dbcon,$query) or die('Error in firing your insert query');
 		if($fire){
 			// Admin side page creation
