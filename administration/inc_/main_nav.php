@@ -60,12 +60,13 @@
             </li>    
             <li class="sub-menu">
                 <a href="javascript:;" >
-                    <i class="fa fa-tasks"></i>
+                    <i class="fa fa-puzzle-piece"></i>
                     <span>Manage Widgets</span>
                 </a>
                 <ul class="sub">
-                    <li><a id="pages_categories" href="basic_management/manage_foundations.php">Homepage widgets</a></li>
-                    <li><a id="pages_categories" href="basic_management/manage_header.php">Library widgets</a></li>		                    <li><a id="pages_categories" href="va_cat.php">Videopage widgets</a></li>
+                	 <li><a id="pages_categories" href="widgets/manage_adsense.php">Manage adsense</a></li>
+                    <li><a id="pages_categories" href="basic_management/manage_foundations.php">Fb comment-boxes</a></li>
+                    <li><a id="pages_categories" href="basic_management/manage_header.php">More Widgets</a></li>
                 </ul>
             </li>        
             <li>
