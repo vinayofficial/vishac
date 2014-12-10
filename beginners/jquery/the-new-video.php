@@ -161,10 +161,17 @@ $url_thisvid = SITE_PATH.$levelname."/".$subjname."/".$get_thisvid['vid_pageurl'
 <?php } ?>
 </div>
 </div>
-<div class="video_ad">
-<img src="<?php echo SITE_PATH ?>assets/images/tile_12.png">
-<!--<br /><span class="adtag">Advertisement</span>-->
+<div class="newplistbx">
+	<section id="blackslide1">
+        <div class="video_ad">
+            <img src="<?php echo SITE_PATH ?>assets/images/tile_12.png">
+            <!--<br /><span class="adtag">Advertisement</span>-->
+        </div>        
+    </section>
+    <section id="blackslide2">
+    </section>
 </div>
+
 </div>
 </div>
 <div class="video_navs">
