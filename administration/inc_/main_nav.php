@@ -65,7 +65,7 @@
                 </a>
                 <ul class="sub">
                 	 <li><a id="pages_categories" href="widgets/manage_adsense.php">Manage adsense</a></li>
-                    <li><a id="pages_categories" href="basic_management/manage_foundations.php">Fb comment-boxes</a></li>
+                    <li><a id="pages_categories" href="widgets/manage_fbcommentbox.php">Fb comment-boxes</a></li>
                     <li><a id="pages_categories" href="basic_management/manage_header.php">More Widgets</a></li>
                 </ul>
             </li>        

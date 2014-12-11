@@ -117,7 +117,7 @@
 						$pull_level = pull_data("vish_levels");
 						while($get_level = mysqli_fetch_assoc($pull_level)){							
 					 ?>
-                     <option value="<?php echo $get_level['level_name']; ?>"><?php echo $get_level['level_name']; ?></option>
+                     <option value="<?php echo $get_level['level_id']; ?>"><?php echo $get_level['level_name']; ?></option>
                      <?php } ?>
                     </select>
                 </div>
@@ -169,6 +169,8 @@
 <!--CHeck uncheck button -->
 <script src="assets/js/bootstrap-switch.js"></script>
 <script src="assets/js/toggle-init.js"></script>
+<!--Custom script-->
+<script src="assets/js/custom.js"js/custom.js"></script>
 
 </body>
 </html>

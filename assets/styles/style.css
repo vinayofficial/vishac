@@ -586,7 +586,7 @@ nav#mainav{
 		}
 		
 		.dimension {
-			height: auto;
+			height: auto !important;
 		}
 			
 		.even, .odd {
@@ -1267,9 +1267,25 @@ ul.footlink>li>a{
 .btn.btn-stroke:focus{
 	color:#fff;
 	outline:0;}
-.newplistbx{
-	float:left;
-	width:30%;
-	height:463px;}
+/*.newplistbx{
+	border: 0px solid #ff0;
+    float: left;
+    height: 463px;
+    overflow: hidden;
+    width: 30%;
+	position:relative;}
 section#blackslide1{
-	}
+	background:transparent;
+	height:100%;
+	margin-left:0px;}
+section#blackslide2{
+	background:rgba(0,0,0,0.9);
+	height:100%;
+	min-width:300px;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:10;
+	width:100%;
+	overflow:auto;
+	overflow-x:hidden;}*/
