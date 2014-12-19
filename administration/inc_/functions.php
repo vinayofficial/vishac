@@ -13,7 +13,7 @@
 		}
 		$Inserter = "INSERT INTO ".$tablename.$fields." VALUES (".$values.")";			
 		
-		$pushfire = mysqli_query($dbcon,$Inserter) or die("can not push data. please check provided informations !!");		
+		$pushfire = mysqli_query($dbcon,$Inserter) or die("can not push data. please check provided informations !! <br /> ".mysqli_error($dbcon));		
 		
 		return $pushfire;
 	}
@@ -64,6 +64,27 @@
 		
 		return $trasher;	
 	}
+	
+// ----------------------------------update DATA
+
+	function renew_data($tablename,$data,$condition=null){
+		global $dbcon;
+		
+		if($tablename != "" && $tablename != null){
+			$renew = "UPDATE ".$tablename." ";
+		} else{ die('tablename is required'); }
+		
+		if($data != "" && $data != null){
+			$renew .= "SET ".$data." ";
+		}
+		if($condition != "" && $condition != null){
+			$renew .= "WHERE ".$condition." ";
+		}
+		//echo $renew;
+		$renewal = mysqli_query($dbcon,$renew) or die("can not update data. <br />".mysqli_error($dbcon));		
+		return $renewal;
+	}
+
 //------------------------ check user login
 	function check_login() {
 	session_start();	

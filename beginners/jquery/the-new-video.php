@@ -105,11 +105,11 @@ include_once '../../inc_/va_files.php'; ?>
 <body>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) return;
-js = d.createElement(s); js.id = id;
-js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1436564063228333&version=v2.0";
-fjs.parentNode.insertBefore(js, fjs);
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1436564063228333&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <?php #header
 include_once '../../inc_/header.php';?>
@@ -203,8 +203,9 @@ href="<?php echo $nextvidurl; } ?>"
 <div class="ad_bnr728">
 <img src="<?php echo SITE_PATH ?>assets/images/728x90.jpg" />
 </div>
+
 <div class="fb-comments-bx">
-<div class="fb-comments" data-href="http://www.vishacademy.com" data-width="100%" data-num-posts="3"></div>
+<div class="fb-comments" data-href="http://www.vishacademy.com/<?php echo $subjtitle ?>" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
 </div>
 </div>
 <!---right content----->

@@ -196,7 +196,7 @@ href="<?php echo $nextvidurl; } ?>"
       <div class="ad_bnr728"> <img src="<?php echo SITE_PATH ?>assets/images/728x90.jpg" /> </div>
       <div class="fb-comments-bx">
       	<?php // Subject comment box
-			$explode_subjname = explode(" ",trim($subjtitle));
+			$explode_subjname = explode(" ",trim($get_reltut['subj_name']));
 			$subjname = implode("_",$explode_subjname);
 		 ?>
         <div class="fb-comments" data-href="http://www.vishacademy.com/<?php echo $subjname ?>" data-width="100%" data-numposts="5" data-colorscheme="light"></div>

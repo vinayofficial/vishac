@@ -105,11 +105,11 @@ include_once '../../inc_/va_files.php'; ?>
 <body>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1436564063228333&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1436564063228333&version=v2.0";
+fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <?php #header
 include_once '../../inc_/header.php';?>
@@ -157,12 +157,8 @@ $url_thisvid = SITE_PATH.$levelname."/".$subjname."/".$get_thisvid['vid_pageurl'
           <?php } ?>
         </div>
       </div>
-      <div class="newplistbx">
-        <section id="blackslide1">
-          <div class="video_ad"> <img src="<?php echo SITE_PATH ?>assets/images/tile_12.png"> 
-            <!--<br /><span class="adtag">Advertisement</span>--> 
-          </div>
-        </section>
+      <div class="video_ad"> <img src="<?php echo SITE_PATH ?>assets/images/tile_12.png"> 
+        <!--<br /><span class="adtag">Advertisement</span>--> 
       </div>
     </div>
   </div>
@@ -175,13 +171,23 @@ $url_thisvid = SITE_PATH.$levelname."/".$subjname."/".$get_thisvid['vid_pageurl'
         <li><a <?php
 if($previdurl !== '#'){?>
 href="<?php echo $previdurl; } ?>"
-<?php if($previdurl =='#'){?> class="disableicon" <?php ;}?>><i class="fa fa-backward fa-lg"></i><span class="vidnav_lbl">Previous</span></a></li><!--
---><li><a href="#"><i class="fa fa-download fa-lg"></i><span class="vidnav_lbl">Source files</span></a></li><!--
+<?php if($previdurl =='#'){?> class="disableicon" <?php ;}?>><i class="fa fa-backward fa-lg"></i><span class="vidnav_lbl">Previous</span></a></li>
+        <!--
+-->
+        <li><a href="#"><i class="fa fa-download fa-lg"></i><span class="vidnav_lbl">Source files</span></a></li>
+        <!--
 --><!--<li><a href="#"><i class="fa fa-comments fa-lg"></i><span class="vidnav_lbl">Discuss it</span></a></li><!--
---><li> <a id="facebookbtn-link" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http:/<?php echo $_SERVER['PHP_SELF']; ?>"> <i class="fa fa-facebook-square fa-lg"></i><span class="vidnav_lbl">Share on facebook</span></a></li><!--
---><li><a href="http://www.twitter.com/share?text=Just I found a very helpful video tutorial on #vishAcademy Watch it..."><i class="fa fa-twitter-square fa-lg"></i><span class="vidnav_lbl">Share on twitter</span></a></li><!--
---><li><a target="_blank" href="https://plus.google.com/share?url=http:/<?php echo $_SERVER['PHP_SELF']; ?>"><i class="fa fa-google-plus-square fa-lg"></i><span class="vidnav_lbl">Share on G.plus</span></a></li><!--
---><li><a <?php
+-->
+        <li> <a id="facebookbtn-link" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http:/<?php echo $_SERVER['PHP_SELF']; ?>"> <i class="fa fa-facebook-square fa-lg"></i><span class="vidnav_lbl">Share on facebook</span></a></li>
+        <!--
+-->
+        <li><a href="http://www.twitter.com/share?text=Just I found a very helpful video tutorial on #vishAcademy Watch it..."><i class="fa fa-twitter-square fa-lg"></i><span class="vidnav_lbl">Share on twitter</span></a></li>
+        <!--
+-->
+        <li><a target="_blank" href="https://plus.google.com/share?url=http:/<?php echo $_SERVER['PHP_SELF']; ?>"><i class="fa fa-google-plus-square fa-lg"></i><span class="vidnav_lbl">Share on G.plus</span></a></li>
+        <!--
+-->
+        <li><a <?php
 if($nextvidurl !='#'){?>
 href="<?php echo $nextvidurl; } ?>"
 <?php if($nextvidurl =='#'){?> class="disableicon" <?php ;}?>><i class="fa fa-forward fa-lg"></i><span class="vidnav_lbl">Next</span></a></li>
@@ -195,11 +201,7 @@ href="<?php echo $nextvidurl; } ?>"
       <div id="text-content"> <?php echo $get_vid['vid_desc1']; ?> </div>
       <div class="ad_bnr728"> <img src="<?php echo SITE_PATH ?>assets/images/728x90.jpg" /> </div>
       <div class="fb-comments-bx">
-      	<?php // Subject comment box
-			$explode_subjname = explode(" ",trim($subjtitle));
-			$subjname = implode("_",$explode_subjname);
-		 ?>
-        <div class="fb-comments" data-href="http://www.vishacademy.com/<?php echo $subjname ?>" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
+        <div class="fb-comments" data-href="http://www.vishacademy.com" data-width="100%" data-num-posts="10"></div>
       </div>
     </div>
     <!---right content----->
@@ -209,21 +211,8 @@ href="<?php echo $nextvidurl; } ?>"
         <?php 
 	// Related tutorials fetching operation
 	$reltut = data_selector("vish_subjects","subj_id !='$subjid' AND level_id='$levelid'","subj_id DESC","LIMIT 4");
-	while($get_reltut = mysqli_fetch_assoc($reltut)){ 
-				// Select subject			
-				$subjid =$get_reltut['subj_id'];
-				$explode_subjname = explode(" ",$get_reltut['subj_name']);
-				$subjname = implode("_",$explode_subjname);
-				// Getting current video
-				$vid = data_selector("vish_videodata","subj_id='$subjid'");
-				$get_vid = mysqli_fetch_assoc($vid);
-				$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																		
-	?>
-    	
-    
-        <div class="box50"> <a href="<?php echo SITE_PATH.$vidpage_path ?>"> <img src="<?php echo $get_reltut['subj_logo_url']; ?>" /> </a> </div>
-        
-        
+	while($get_reltut = mysqli_fetch_assoc($reltut)){ ?>
+        <div class="box50"> <a href="<?php echo SITE_PATH.$get_reltut['subj_redirect_to']; ?>"> <img src="<?php echo $get_reltut['subj_logo_url']; ?>" /> </a> </div>
         <?php } ?>
         <div class="allink"><a href="tile.php" class="lnk-normal">Browse all tutorials...</a></div>
       </div>

@@ -4,18 +4,26 @@
 	 check_login();
 ?>
 <?php
-	// ADD Adsense FORM
+	// ADD fb plugin FORM
 	if(isset($_POST['create_plugin'])){
-		$cmnt_subjid = mysql_real_escape_string(trim(ucfirst($_POST['plugin_subjid'])));		
+		$cmnt_subjid = mysql_real_escape_string(trim(ucfirst($_POST['plugin_subj'])));		
 		$cmnt_name = mysql_real_escape_string(trim(ucfirst($_POST['plugin_name'])));
 		$cmnt_code = mysql_real_escape_string(trim(ucfirst($_POST['plugin_code'])));
-		$cmnt_nofposts = mysql_real_escape_string(trim(ucfirst($_POST['plugin_posts'])));		
+		$cmnt_nofposts = mysql_real_escape_string(trim(ucfirst($_POST['plugin_posts'])));
+		//fetching subject name
+		$query = pull_data("vish_subjects","subj_id='$cmnt_subjid'");		
+		$subjname = mysqli_fetch_assoc($query);
+		$subject =  $subjname['subj_name'];
+				
 		if(isset($_POST['plugin_status']) && $_POST['plugin_status']==true){$plugin_status = 1;} else {$plugin_status = 0;}
 						
-		$iquery = "INSERT INTO fbcommentboxes (cmnt_subjid,cmnt_name,cmnt_code,cmnt_nof_posts,cmnt_date,cmnt_status) VALUES('$cmnt_subjid','$cmnt_name','$cmnt_code','$cmnt_nofposts',now(),'$plugin_status')";
+		$iquery = "INSERT INTO fbcommentboxes (cmnt_subjid,cmnt_name,cmnt_code,cmnt_nof_posts,cmnt_date,cmnt_status) VALUES('$cmnt_subjid','$subject','$cmnt_code','$cmnt_nofposts',now(),'$plugin_status')";
 		$qfire = mysqli_query($dbcon,$iquery) or die("ERROR FOUND : ".mysqli_error($dbcon));
 		if($qfire){
-			header('Location:'.$_SERVER['PHP_SELF']);
+			$update = renew_data("vish_subjects","cmnt_plugin='1'","subj_id='$cmnt_subjid'");
+			if($update){
+				header('Location:'.$_SERVER['PHP_SELF']);
+			}
 		}
 	}
 ?>
@@ -52,7 +60,7 @@
                          </span>
                     </header>
                     <div class="panel-body">
-                        <table class="table  table-hover general-table">
+                        <table class="table  table-hover general-table lets-edit">
                             <thead>
                             <tr>
                                 <th>#</th>                                
@@ -125,14 +133,19 @@
                     <label for="plugin_cat">Select catagory</label>
                     <select class="form-control" name="plugin_cat" id="plugin_cat" placeholder="choose catagory" onChange="" required>
                     <option value="">Choose catagory</option>
-                    <option value="">catagory list</option>
+                    <?php 
+						$pull_cats = pull_data("vish_cats");
+						while($get_cats = mysqli_fetch_assoc($pull_cats)){							
+					 ?>
+                     <option value="<?php echo $get_cats['cat_id']; ?>"><?php echo $get_cats['cat_name']; ?></option>
+                     <?php } ?>
+
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="plugin_subj">Select subject</label>
                     <select class="form-control" name="plugin_subj" id="plugin_subj" placeholder="choose subject" onChange="" required>
-                    <option value="">Choose subject</option>
-                    <option value="">this is subject</option>
+             		<option value="">No subject found</option>      
                     </select>
                 </div>                               
                 <div class="form-group">

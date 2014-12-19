@@ -2,59 +2,6 @@
 // database file is include in functions.php
  require_once 'inc_/functions.php';
 ?>
-<?php
-	////////////phpdevtips
-	function time_ago( $date )
-{
-    if( empty( $date ) )
-    {
-        return "No date provided";
-    }
-
-    $periods = array("second", "minute", "hour", "day", "week", "month", "year", "decade");
-
-    $lengths = array("60","60","24","7","4.35","12","10");
-
-    $now = time();
-
-    $unix_date = strtotime( $date );
-
-    // check validity of date
-
-    if( empty( $unix_date ) )
-    {
-        return "Bad date";
-    }
-
-    // is it future date or past date
-
-    if( $now > $unix_date )
-    {
-        $difference = $now - $unix_date;
-        $tense = "ago";
-    }
-    else
-    {
-        $difference = $unix_date - $now;
-        $tense = "from now";
-    }
-
-    for( $j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++ )
-    {
-        $difference /= $lengths[$j];
-    }
-
-    $difference = round( $difference );
-
-    if( $difference != 1 )
-    {
-        $periods[$j].= "s";
-    }
-
-    return "$difference $periods[$j] {$tense}";
-
-}
-?>
 <!doctype html>
 <html>
 <head>
@@ -190,25 +137,24 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             <ul class="sub_tile">
               <!----------->
               <?php 
-									$myquery = data_selector("vish_subjects","level_id='1' AND subj_status='1'","subj_id DESC","LIMIT 2");		
-															
-										while($fetcher=mysqli_fetch_assoc($myquery)){	
-										
-										//fetching level
-										$levelname = 'beginners';
-										$get_level = data_selector("vish_levels","level_name='$levelname'");
- 										$fetch = mysqli_fetch_assoc($get_level);
-  										 $levelid = $fetch['level_id'];
-										 $levelname = $fetch['level_name'];
-										 // Select subject			
-										 $subjid =$fetcher['subj_id'];							
-										$explode_subjname = explode(" ",$fetcher['subj_name']);
-										$subjname = implode("_",$explode_subjname);
-										// Getting current video
-										$vid = data_selector("vish_videodata","subj_id='$subjid'");
-										$get_vid = mysqli_fetch_assoc($vid);
-										$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																		
-								?>
+				$myquery = data_selector("vish_subjects","level_id='1' AND subj_status='1'","subj_id DESC","LIMIT 2");											
+				while($fetcher=mysqli_fetch_assoc($myquery)){	
+				
+				//fetching level
+				$levelname = 'beginners';
+				$get_level = data_selector("vish_levels","level_name='$levelname'");
+				$fetch = mysqli_fetch_assoc($get_level);
+				 $levelid = $fetch['level_id'];
+				 $levelname = $fetch['level_name'];
+				 // Select subject			
+				 $subjid =$fetcher['subj_id'];							
+				$explode_subjname = explode(" ",$fetcher['subj_name']);
+				$subjname = implode("_",$explode_subjname);
+				// Getting current video
+				$vid = data_selector("vish_videodata","subj_id='$subjid'");
+				$get_vid = mysqli_fetch_assoc($vid);
+				$vidpage_path = strtolower($levelname."/".$subjname."/".$get_vid['vid_pageurl']);																		
+			?>
               <li>
                 <div class="tile_img"> <a href="<?php echo $vidpage_path; ?>"> <img src="<?php echo $fetcher['subj_logo_url']; ?>" alt="subject image" /> </a> </div>
                 <div class="tile_subject"> <a href="<?php echo $vidpage_path; ?>"><?php echo $fetcher['subj_name']; ?></a> </div>
@@ -225,7 +171,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                 ///////////Working on time ago functionality////////
                 /////////////////////////////////////////---------->
                  <?php				 	
-					$ts= $fetcher['subjDate'];
+					$ts= $fetcher['subj_madeon'];
 					echo time_ago($ts);
 					?>
                 <!--Time ago functionality ends here-->
