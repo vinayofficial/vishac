@@ -183,7 +183,7 @@
 <script src="assets/js/bootstrap-switch.js"></script>
 <script src="assets/js/toggle-init.js"></script>
 <!--Custom script-->
-<script src="assets/js/custom.js"js/custom.js"></script>
+<script src="assets/js/custom.js"></script>
 
 </body>
 </html>

@@ -87,6 +87,8 @@ pre {
 	font-size:13px;}
 .txt-tiny{
 	font-size:10px;}
+.txt-orng{
+	color:#f60 !important;}
 a:hover{
 	text-decoration:underline;}
 
@@ -1267,25 +1269,6 @@ ul.footlink>li>a{
 .btn.btn-stroke:focus{
 	color:#fff;
 	outline:0;}
-/*.newplistbx{
-	border: 0px solid #ff0;
-    float: left;
-    height: 463px;
-    overflow: hidden;
-    width: 30%;
-	position:relative;}
-section#blackslide1{
-	background:transparent;
-	height:100%;
-	margin-left:0px;}
-section#blackslide2{
-	background:rgba(0,0,0,0.9);
-	height:100%;
-	min-width:300px;
-	position:absolute;
-	left:0;
-	top:0;
-	z-index:10;
-	width:100%;
-	overflow:auto;
-	overflow-x:hidden;}*/
+pre{
+	background-color:transparent !important;
+	border:0 !important;}

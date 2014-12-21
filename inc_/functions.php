@@ -103,7 +103,15 @@
 		 $protected = trim(htmlentities(strip_tags($data)));
 		 return $protected;
 	}
+//----------------------- Fetch Widget and Adsense code
+	function get_ad($ad_name){
+		$get_ad = pull_data("manage_widgets","wdgt_name='$ad_name' AND wdgt_status='1'");				
+		$near_vid_ad = mysqli_fetch_assoc($get_ad);
+		$adsense = $near_vid_ad['wdgt_code'];
+		return $adsense;
+	}
 ?>
+				
 <?php
 
 // CLASS FOR CONVERTING TIME TO AGO

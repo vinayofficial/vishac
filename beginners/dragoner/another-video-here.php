@@ -10,7 +10,7 @@ $get_vid = mysqli_fetch_assoc($fire_selvid);
 $subjid = $get_vid['subj_id'];
 $levelid = $get_vid['level_id'];
 $videoid = $get_vid['vid_id'];
-// fetching current subject name
+// fetc`hing current subject name
 $selsubj = "SELECT * FROM vish_subjects WHERE subj_id='$subjid'";
 $fire_selsubj = mysqli_query($dbcon,$selsubj);
 $get_subj = mysqli_fetch_assoc($fire_selsubj);
@@ -58,11 +58,6 @@ $nextvidurl = '#';
 <meta property="og:url" content="<?php echo $_SERVER['PHP_SELF'];?>" />
 <link rel="author" href="https://plus.google.com/117511589032708005943"/>
 <!---->
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <style>
 body {
 	padding-top: 50px;
@@ -116,6 +111,46 @@ include_once '../../inc_/va_files.php'; ?>
 include_once '../../inc_/header.php';?>
 <!---playlist----->
 <div id="sidr"> <span style="float:right;"><a class="sidrman" href="#" style="color:#CE5037 ;"><i class="fa fa-times-circle fa-2x"></i></a></span>
+	
+          <!------------
+<div id="accordion">
+  <h4 class="accordion-toggle">Accordion 1</h4>
+  <div class="accordion-content default">
+    <p>Cras malesuada ultrices augue molestie risus.</p>
+  </div>
+  <h4 class="accordion-toggle">Accordion 2</h4>
+  <div class="accordion-content">
+    <p>Lorem ipsum dolor sit amet mauris eu turpis.</p>
+  </div>
+  <h4 class="accordion-toggle">Accordion 3</h4>
+  <div class="accordion-content">
+    <p>Vivamus facilisisnibh scelerisque laoreet.</p>
+  </div>
+</div>
+      <!-------------->
+      <div id="accordion">
+      <?php 
+	  	// updated playlist
+			//Fetching Topic Names
+		$sel_tpc = pull_data("vish_topics","subj_id='$subjid' AND topic_status='1'","topic_id ASC");
+		while($get_tpc = mysqli_fetch_assoc($sel_tpc)){
+			$topic_id = $get_tpc['topic_id']; ?>
+			<h4 class="accordion-toggle"><?php echo $get_tpc['topic_name']; ?></h4>		
+            <div class="accordion-content default">
+            <?php
+            	//Fetching Video Names 
+				$query = pull_data("vish_videodata","topic_id='$topic_id' AND vid_status='1'");
+				while($get_vid = mysqli_fetch_assoc($query)){
+					$url_thisvid = SITE_PATH.$levelname."/".$subjname."/".$get_vid['vid_pageurl']; 
+			?>            	
+                    <p>
+                    <a href="<?php echo $url_thisvid; ?>" data-tooltip="<?php echo $get_vid['vid_Hname'] ?>"> » <?php echo $get_vid['vid_Ename']; ?> </a>
+                    </p>                
+			<?php } ?>			
+            </div>
+		<?php } ?>
+        </div>
+
   <div id="accord_box">
     <div class="libbox"> 
       <!--Video history box-->
@@ -197,6 +232,7 @@ href="<?php echo $nextvidurl; } ?>"
       <h1 class="water">// <?php echo $subjtitle ?></h1>
       <h2 class="title txt-orng">// <?php echo $get_vid['vid_Ename']; ?></h2>
       <div id="text-content"> <?php echo $get_vid['vid_desc1']; ?> </div>
+
       <?php //Banner Advertisement
 	  	 if(get_ad("Vid_banner")){
 	   ?>

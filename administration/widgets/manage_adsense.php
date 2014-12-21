@@ -11,30 +11,13 @@
 		$adsense_code = mysql_real_escape_string(trim($_POST['adsense_code']));
 		if(isset($_POST['adsense_status']) && $_POST['adsense_status']==true){$adsense_status = 1;} else {$adsense_status = 0;}
 						
-		$iquery = "INSERT INTO manage_adsense (ad_name,ad_size,ad_code,ad_status,modified_on) VALUES('$adsense_name','$adsense_size','$adsense_code','$adsense_status',now())";
+		$iquery = "INSERT INTO manage_widgets (wdgt_name,wdgt_size,wdgt_code,wdgt_status,wdgt_date) VALUES('$adsense_name','$adsense_size','$adsense_code','$adsense_status',now())";
 		$qfire = mysqli_query($dbcon,$iquery) or die("ERROR FOUND : ".mysqli_error($dbcon));
 		if($qfire){
 			header('Location:'.$_SERVER['PHP_SELF']);
 		}
 	}
-?>
-<?php
-	// ADD catagory FORM
-	if(isset($_POST['submit_new_cat'])){
-		$new_cat_name = mysql_real_escape_string(trim($_POST['new_cat_name']));	
-		if(isset($_POST['cat_active']) && $_POST['cat_active'] == true ){
-			$cat_active = 1;
-		} else{
-			$cat_active = 0;
-		}		
-		$newcat_qry = "INSERT INTO vish_cats (cat_name,cat_status,cat_madeon) VALUES('$new_cat_name','$cat_active',now())";
-		$fire_newcat_qry = mysqli_query($dbcon,$newcat_qry);
-		if(!$fire_newcat_qry){echo 'Facing ERROR IN VALUE SUBMISSION';}
-		else{echo 'DATA INSERTED SUCCESSFULLY !!!'; header('Location:'.$_SERVER['PHP_SELF']);}
-	}
-?>
-
-	
+?>	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +51,7 @@
                          </span>
                     </header>
                     <div class="panel-body">
-                        <table class="table  table-hover general-table">
+                        <table class="table table-hover general-table lets-edit" id="manage_widgets" data-date="wdgt_date">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -83,24 +66,31 @@
                             </thead>
                             <tbody>
                             <?php
-                            	$ad_select = 'select * from manage_adsense';
+                            	$ad_select = 'select * from manage_widgets';
 								$ad_query = mysqli_query($dbcon,$ad_select);
 								if(!$ad_query){echo 'can not data selected';}	
 								$i=1;															
 								while($fetch_ad= mysqli_fetch_assoc($ad_query)){																
 							?>
-                           	 <tr>
+                           	 <tr class="wdgt_id" id="<?php echo $fetch_ad['wdgt_id']; ?>">
                                 <td><?php echo $i; ?></td>
-                                <td><?php echo $fetch_ad['ad_name']; ?></td>                                
-                                <td><?php echo $fetch_ad['ad_size']; ?></td>
-                                <td><?php echo substr($fetch_ad['ad_code'],0,120).'...'; ?></td>
-                                <td><?php echo $fetch_ad['modified_on']; ?></td>
-                                <td><?php $check_active = $fetch_ad['ad_status']; 
+                                <td class="wdgt_name"><?php echo $fetch_ad['wdgt_name']; ?></td>
+                                <td class="wdgt_size"><?php echo $fetch_ad['wdgt_size']; ?></td>
+                                <td style="max-width:300px !important; overflow:hidden;" class="wdgt_code"><?php echo substr($fetch_ad['wdgt_code'],0,120).'...'; ?></td>
+                                <td class="wdgt_date">
+                                <abbr title="<?php echo $fetch_ad['wdgt_date']; ?>">
+									<?php //echo $fetch_ad['ad_date']; 
+										$ts= $fetch_ad['wdgt_date'];
+										echo time_ago($ts);
+									?>                                            
+                                 </abbr>                        
+                                </td>
+                                <td class="wdgt_status"><?php $check_active = $fetch_ad['wdgt_status']; 
 									if($check_active == 1){?> <span class="badge bg-primary">Yes</span> <?php } else {?> <span class="badge">No</span> <?php }?>
                                 </td>
-                                <td><a href="crud/manipulator.php?elvl=<?php echo $fetch_ad['ad_id']; ?>" class="btn btn-primary" onClick="return confirm('We are going to edit : <?php echo $fetch_ad['ad_name'] ?>');" ><i class="fa fa-pencil"></i></a>    
+                                <td><a href="crud/manipulator.php?elvl=<?php echo $fetch_ad['wdgt_id']; ?>" class="btn btn-primary" onClick="return confirm('We are going to edit : <?php echo $fetch_ad['wdgt_name'] ?>');" ><i class="fa fa-pencil"></i></a>    
                                 </td>
-                                <td><a href="crud/trash.php?dellvl=<?php echo $fetch_ad['ad_id']; ?>" class="btn btn-danger" onClick="return confirm('Are you sure ?');"><i class="fa fa-trash-o"></i></a></td> <?php $i++; } ?>
+                                <td><a href="crud/trash.php?dellvl=<?php echo $fetch_ad['wdgt_id']; ?>" class="btn btn-danger" onClick="return confirm('Are you sure ?');"><i class="fa fa-trash-o"></i></a></td> <?php $i++; } ?>
                             </tr>
                            </tbody>
                         </table>
@@ -159,6 +149,8 @@
 <!--CHeck uncheck button -->
 <script src="assets/js/bootstrap-switch.js"></script>
 <script src="assets/js/toggle-init.js"></script>
+<!--Custom script-->
+<script src="assets/js/custom.js"></script>
 
 </body>
 </html>

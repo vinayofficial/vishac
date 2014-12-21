@@ -28,11 +28,28 @@ $("#plugin_level").on('change', get_subjects_name);
 // -----------------------------creating table td editable |
 //----------------------------------------------------------
 
-$("table.lets-edit td").on('dblclick',function(){
+$("table.lets-edit td").on('click',function(){
 	$(this).attr("contenteditable","true");
 });
 
 $("table.lets-edit td").on('blur',function(){
-	$(this).removeAttr("contenteditable");
-		
+	$(this).removeAttr("contenteditable");	
+	var newval = $(this).text();
+	var field = $(this).attr('class');
+	var tblname = $(this).closest('table').attr('id');
+	var id_val = $(this).closest('tr').attr('id');
+	var id_fld  = $(this).closest('tr').attr('class');
+	var date_fld = $(this).closest('table').attr('data-date');	
+	//alert(date_fld);
+	//return false;
+	$.post('assets/ajax/custom_ajax.php',{
+		id_fld : id_fld,
+		id_val : id_val,
+		tblname : tblname,
+		field : field,
+		newval : newval,
+		date_fld : date_fld},
+		function(data){
+			alert(data);
+	});
 });

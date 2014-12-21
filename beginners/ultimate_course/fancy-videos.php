@@ -1,4 +1,4 @@
-<?php require_once '../../inc_/functions.php'; ?>
+<li></li><?php require_once '../../inc_/functions.php'; ?>
 <?php require_once '../../inc_/_dbconnector.php'; ?>
 <?php
 $url = $_SERVER['PHP_SELF'];
@@ -159,7 +159,12 @@ $url_thisvid = SITE_PATH.$levelname."/".$subjname."/".$get_thisvid['vid_pageurl'
       </div>
       <div class="newplistbx">
         <section id="blackslide1">
-          <div class="video_ad"> <img src="<?php echo SITE_PATH ?>assets/images/tile_12.png"> 
+          <div class="video_ad">
+          <?php
+		  	  // NEAR VID ADVERTISE 300x250 
+			  echo get_ad("near_vid");
+		   ?>          	
+           <!--img src="<?php// echo SITE_PATH ?>assets/images/tile_12.png"--> 
             <!--<br /><span class="adtag">Advertisement</span>--> 
           </div>
         </section>
@@ -169,10 +174,8 @@ $url_thisvid = SITE_PATH.$levelname."/".$subjname."/".$get_thisvid['vid_pageurl'
   <div class="video_navs">
     <div class="cmn-cntnr">
       <ul>
-        <li><a id="playlist-btn" href="#" style="color:#CE5037;"><i class="fa fa-list fa-lg"></i><span class="vidnav_lbl">Playlist</span></a></li>
-        <!--
--->
-        <li><a <?php
+        <li><a id="playlist-btn" href="#" style="color:#CE5037;"><i class="fa fa-list fa-lg"></i><span class="vidnav_lbl">Playlist</span></a></li><!--
+--><li><a <?php
 if($previdurl !== '#'){?>
 href="<?php echo $previdurl; } ?>"
 <?php if($previdurl =='#'){?> class="disableicon" <?php ;}?>><i class="fa fa-backward fa-lg"></i><span class="vidnav_lbl">Previous</span></a></li><!--
@@ -191,21 +194,40 @@ href="<?php echo $nextvidurl; } ?>"
   <div class="cmn-cntnr">
     <div class="left-content">
       <h1 class="water">// <?php echo $subjtitle ?></h1>
-      <h2 class="title">// <?php echo $get_vid['vid_Ename']; ?></h2>
+      <h2 class="title txt-orng">// <?php echo $get_vid['vid_Ename']; ?></h2>
       <div id="text-content"> <?php echo $get_vid['vid_desc1']; ?> </div>
-      <div class="ad_bnr728"> <img src="<?php echo SITE_PATH ?>assets/images/728x90.jpg" /> </div>
+      <?php //Banner Advertisement
+	  	 if(get_ad("Vid_banner")){
+	   ?>
+      	<div class="ad_bnr728">
+      		<?php echo get_ad("Vid_banner"); ?>      	 
+      	</div>
+      <?php } ?>
+      <?php 
+		// Related Tutorials plugin status check
+		$query=pull_data("manage_widgets","wdgt_name='All_commentboxes' AND wdgt_status='1'");
+		$fetch = mysqli_fetch_assoc($query);
+		if($fetch['wdgt_status'] == 1){
+	   ?>
       <div class="fb-comments-bx">
       	<?php // Subject comment box
 			$explode_subjname = explode(" ",trim($subjtitle));
 			$subjname = implode("_",$explode_subjname);
 		 ?>
         <div class="fb-comments" data-href="http://www.vishacademy.com/<?php echo $subjname ?>" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
-      </div>
+      </div>      
+      <?php } ?>
     </div>
     <!---right content----->
     <div class="rightcontent">
-      <h4>Related tutorials...</h4>
-      <div class="box3x3">
+    <?php 
+		// Related Tutorials plugin status check
+		$query=pull_data("manage_widgets","wdgt_name='Related_tutorials' AND wdgt_status='1'");
+		$fetch = mysqli_fetch_assoc($query);
+		if($fetch['wdgt_status'] == 1){
+	   ?>
+      		<h4>Related tutorials...</h4>
+      		<div class="box3x3">
         <?php 
 	// Related tutorials fetching operation
 	$reltut = data_selector("vish_subjects","subj_id !='$subjid' AND level_id='$levelid'","subj_id DESC","LIMIT 4");
@@ -227,10 +249,22 @@ href="<?php echo $nextvidurl; } ?>"
         <?php } ?>
         <div class="allink"><a href="tile.php" class="lnk-normal">Browse all tutorials...</a></div>
       </div>
-      <div class="tile_ad300"> <img src="<?php echo SITE_PATH ?>assets/images/tile_12.png" /> </div>
+      <?php } ?>
+      <?php if(get_ad("vid_sidebar")){?>
+	      <div class="tile_ad300">
+    	   	<?php echo get_ad("vid_sidebar"); ?>
+      	   </div>
+      <?php } ?>
+      <?php 
+		// FB likebox plugin status check
+		$query=pull_data("manage_widgets","wdgt_name='Fb_like_box' AND wdgt_status='1'");
+		$fetch = mysqli_fetch_assoc($query);
+		if($fetch['wdgt_status'] == 1){
+	   ?>
       <div class="tile_ad300 fblikebx">
         <div class="fb-like-box" data-href="https://www.facebook.com/vishAcademy" data-width="300" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true"></div>
       </div>
+      <?php } // like box code ends here?>
     </div>
   </div>
 </div>

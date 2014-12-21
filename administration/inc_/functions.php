@@ -2,7 +2,8 @@
 	// Constant Declarations	
 	define('ADMIN_BASEURL','http://localhost/vishacademy.com/administration/');
 	define('USER_BASEURL','http://localhost/vishacademy.com/');
-	
+	// timezone declaration
+	date_default_timezone_set("Asia/Kolkata");	
 
 //----------------------------------- Insert data function
 		
@@ -80,7 +81,7 @@
 		if($condition != "" && $condition != null){
 			$renew .= "WHERE ".$condition." ";
 		}
-		//echo $renew;
+		$renew;
 		$renewal = mysqli_query($dbcon,$renew) or die("can not update data. <br />".mysqli_error($dbcon));		
 		return $renewal;
 	}
@@ -92,4 +93,86 @@
 		header('location: login.php');
 	}
 	}
+?>
+
+
+<?php
+
+// CLASS FOR CONVERTING TIME TO AGO
+class convertToAgo {
+
+    function convert_datetime($str) {
+	
+   		list($date, $time) = explode(' ', $str);
+    	list($year, $month, $day) = explode('-', $date);
+    	list($hour, $minute, $second) = explode(':', $time);
+    	$timestamp = mktime($hour, $minute, $second, $month, $day, $year);
+    	return $timestamp;
+    }
+
+    function makeAgo($timestamp){
+	
+   		$difference = time() - $timestamp;
+   		$periods = array("sec", "min", "hr", "day", "week", "month", "year", "decade");
+   		$lengths = array("60","60","24","7","4.35","12","10");
+   		for($j = 0; $difference >= $lengths[$j]; $j++)
+   			$difference /= $lengths[$j];
+   			$difference = round($difference);
+   		if($difference != 1) $periods[$j].= "s";
+   			$text = "$difference $periods[$j] ago";
+   			return $text;
+    }
+	
+} // END CLASS
+////////////phpdevtips Time ago function
+function time_ago( $date )
+{
+    if( empty( $date ) )
+    {
+        return "No date provided";
+    }
+
+    $periods = array("second", "minute", "hour", "day", "week", "month", "year", "decade");
+
+    $lengths = array("60","60","24","7","4.35","12","10");
+
+    $now = time();
+
+    $unix_date = strtotime( $date );
+
+    // check validity of date
+
+    if( empty( $unix_date ) )
+    {
+        return "Bad date";
+    }
+
+    // is it future date or past date
+
+    if( $now > $unix_date )
+    {
+        $difference = $now - $unix_date;
+        $tense = "ago";
+    }
+    else
+    {
+        $difference = $unix_date - $now;
+        $tense = "from now";
+    }
+
+    for( $j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++ )
+    {
+        $difference /= $lengths[$j];
+    }
+
+    $difference = round( $difference );
+
+    if( $difference != 1 )
+    {
+        $periods[$j].= "s";
+    }
+
+    return "$difference $periods[$j] {$tense}";
+
+}
 ?>

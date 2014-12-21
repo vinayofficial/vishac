@@ -160,11 +160,11 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                 <div class="tile_subject"> <a href="<?php echo $vidpage_path; ?>"><?php echo $fetcher['subj_name']; ?></a> </div>
                 <div class="tile_cat">
                   <?php
-											$catid = $fetcher['cat_id'];
-                                        	$subquery = data_selector("vish_cats","cat_id='$catid'");
-											$subfetch = mysqli_fetch_assoc($subquery) or die('can not fetch sub cat');
-											echo $subfetch['cat_name'];
-                                        ?>
+						$catid = $fetcher['cat_id'];
+						$subquery = data_selector("vish_cats","cat_id='$catid'");
+						$subfetch = mysqli_fetch_assoc($subquery) or die('can not fetch sub cat');
+						echo $subfetch['cat_name'];
+					?>
                 </div>
                 <div class="tile_ago">
                 <!-------////////////////////////////////////////////
@@ -450,96 +450,9 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 </div>
 
 <!--footer-->
-<section id="footer">
-  <div class="cmn-cntnr">
-    <div class="footbx">
-      <h3><a name="test"><i class="fa fa-user"></i></a> Users Review</h3>
-       <!-- Carousel
-            ================================================== -->
-            <div id="myCarousel" class="carousel slide">
-                 <!-- Indicators -->         
-                <div class="carousel-inner">           
-                    <div class="item active">
-                        <blockquote>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                          <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                        </blockquote>
-                    </div>
-                    <div class="item">
-                        <blockquote>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                          <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                        </blockquote>
-                     </div>  
-                    <div class="item">
-                        <blockquote>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                          <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-                        </blockquote>
-                    </div>                                                                                   
-                </div> 
-               <div class="carousel-controls">
-                  <a class="carousel-control left" href="#myCarousel" data-slide="prev"><span class="fa fa-angle-double-left"></span></a>
-                  <a class="carousel-control right" href="#myCarousel" data-slide="next"><span class="fa fa-angle-double-right"></span></a>
-              </div>               
-                                                            
-            </div><!-- End Carousel --> 
-    </div>
-    <div class="footbx">
-      <h3><i class="fa fa-bell"></i> Join Alerts</h3>
-      <div class="footerform">
-        <p> Fill up these information below and join the <i>vish Alerts </i> on your email and we will send you an email on every new subject / video upload on our site / channel. </p>
-        <div id="alterr"></div>
-        <form name="alert-form" id="alert-form" class="footerform" onSubmit="return validation()">
-          <input type="text" name="altname" id="vstrname" placeholder="// Your Full Name Here" />
-          <input type="email" name="altmail" id="vstrmail" placeholder="// Your Email address Here"  />
-          <button type="submit" name="altsend" id="altsend" class="btn-fff" />
-          <i class="fa fa-bell"></i> join Alerts
-          </button>
-        </form>
-      </div>
-    </div>
-    <div class="footbx">
-      <h3><i class="fa fa-envelope"></i> SEND A MESSAGE</h3>
-      <div id="msgerr"></div>
-      <div class="footerform usrmsgbx">
-        <form name="feedback-form" id="feedback-form">
-          <input type="text" name="msgname" id="msgname" placeholder="// Your Full Name Here" />
-          
-          <!--<div class="footselect">
-                            <select name="msgusing" id="msgusing" class="" required>
-                                <option value=""> // Select.</option>
-                                <option value="email"> Email id »</option>
-                                <option value="facebook"> Facebook id »</option>
-                                <option value="twitter"> Twitter id »</option>
-                            </select>
-                        </div>-->
-          <input name="msgfrom" id="msgfrom" type="text" style="margin-top:0;" placeholder="// Email address" >
-          <textarea name="msgbody" id="msgbody" rows="4" placeholder="// Send Feedback / message / suggestion / question anything you feel about this site..."></textarea>
-          <button name="msgsender" id="msgsender" class="btn-fff"> <i class="fa fa-plane"></i> Send Message </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
 <?php include_once 'inc_/footer.php';?>
-<!-- Modal -->
-<div class="modal fade Fur" id="" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body"> ... </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<script src="assets/js/custom.js"></script> 
+
+<script src="assets/js/custom.js"></script>
 
 <script>
 ////////////////////////

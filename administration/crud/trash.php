@@ -53,7 +53,7 @@
 			echo 'ERROR IN DELETION PROCESS';
 		}
 		else{
-			$image_path = '../'.$bcrs['subj_logo_url'];
+			$image_path = $bcrs['subj_logo_url'];
 			$page_path ='../'.$bcrs['subj_redirect_to'];
 			unlink($image_path) or die('IMAGE file not deleted');
 			unlink($page_path) or die('manage video page  of this subject not deleted');

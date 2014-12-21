@@ -159,7 +159,12 @@ $url_thisvid = SITE_PATH.$levelname."/".$subjname."/".$get_thisvid['vid_pageurl'
       </div>
       <div class="newplistbx">
         <section id="blackslide1">
-          <div class="video_ad"> <img src="<?php echo SITE_PATH ?>assets/images/tile_12.png"> 
+          <div class="video_ad">
+          	<?php  // NEAR VID ADVERTISE 300x250 
+				$get_ad = pull_data("manage_adsense","ad_name='near_vid'");
+				
+			?>          	
+           <!--img src="<?php echo SITE_PATH ?>assets/images/tile_12.png"--> 
             <!--<br /><span class="adtag">Advertisement</span>--> 
           </div>
         </section>
